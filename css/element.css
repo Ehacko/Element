@@ -31,6 +31,16 @@
   --buttonFontSize: 1em;
   --buttonHeight: 1.5em;
 }
+
+/* 
+ *
+ * List of class:
+ * * header: PolyHead;
+ * * grid: autoGrid;
+ * * modal: Modalinator;
+ * * button: Ebtn;
+ *
+ */
 *, *::before, *::after{
   box-sizing: border-box
 }

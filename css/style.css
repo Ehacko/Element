@@ -141,6 +141,13 @@ body>*,a{
       height: 100%;
       overflow: visible;
     }
+    
+    .header2 .navicons a:hover {
+      font-size: 115%;
+    }
+    .header1 .navicons a.active {
+      color: var(--MC-secondary);
+    }
 /* Grid */
 
 .grid1{
