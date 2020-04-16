@@ -7,7 +7,7 @@
   --MC-primary: rgb(255, 255, 255);
   --MC-secondary: rgb(52, 52, 52);
   --FC-primary: rgb(25, 25, 25);
-  --FC-secondary: rgb(0, 0, 255);
+  --FC-secondary: rgb(255, 0, 0);
   /* opacity */
   --O-Xhigh: 0.9;
   --O-high: 0.75;
@@ -143,10 +143,7 @@ body>*,a{
     }
     
     .header2 .navicons a:hover {
-      font-size: 115%;
-    }
-    .header1 .navicons a.active {
-      color: var(--MC-secondary);
+      text-shadow: 0 0 15px var(--FC-secondary);
     }
 /* Grid */
 
