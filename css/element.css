@@ -78,7 +78,7 @@
     grid-auto-rows: var(--polyHeadHeight-row);
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: var(--polyHeadHeight-nav);
   }
   .polyHead > p {
     margin: 0;
@@ -102,6 +102,7 @@
     width: 100%;
     justify-content: var(--polyHeadAlign-nav);
     transition: all 0.2s ease;
+    overflow: hidden;
   }
   .polyHead>nav>*:first-child:not(:last-child) {
     justify-content: var(--polyHeadAlign-navPart1);

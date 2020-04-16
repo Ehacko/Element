@@ -151,3 +151,11 @@ body>*,a{
   background-color: grey;
 }
 
+.grid2{
+  --autoGridWidth: calc(50% - var(--autoGridGap));
+  --autoGridHeight: 10%;
+  --autoGridGap: .5em
+}
+.grid2>*{
+  background-color: lightcoral;
+}
