@@ -1,0 +1,197 @@
+:root{
+
+  /* Grid variable */
+  --autoGridGap: 5px;
+  --autoGridHeight: 100%;
+  --autoGridType: auto-fit;
+  --autoGridWidth: 250px;
+
+  /* Header variable */
+  --polyHeadAlign-nav: center;
+  --polyHeadAlign-navPart1: flex-start;
+  --polyHeadAlign-navPart2: flex-end;
+  --polyHeadColumns-nav: minmax(150px, 1fr) minmax(150px, 2fr) minmax(150px, 1fr);
+  --polyHeadResponsiveColumns-nav: minmax(150px, 1fr) minmax(100px, 1fr);
+  --polyHeadGridFlow: column;
+  --polyHeadHeight-div: calc( ( var(--polyHeadHeight-nav) + var(--polyHeadHeight-p)/2 )*3 );
+  --polyHeadHeight-nav: 4em;
+  --polyHeadHeight-p: 3em;
+  --polyHeadHeight-row: auto;
+  --polyHeadHPadding-a: 0.5em;
+  --polyHeadPadding-nav: 0.5em;
+  --polyHeadVPadding-a: 2.5px;
+
+  /* Modal */
+  --modalMargin: 10%;
+
+  /* Button */
+
+  --buttonBackground1: rgb(255, 255, 255);
+  --buttonBackground2: rgb(156, 156, 156);
+  --buttonFontSize: 1em;
+  --buttonHeight: 1.5em;
+}
+*, *::before, *::after{
+  box-sizing: border-box
+}
+.autoGrid {
+  display: inline-grid;
+}
+.polyHead img {
+  height: 100%;
+}
+.IMG>:only-child{
+  width: 100%;
+}
+/* Grid */
+  
+  /* Automatic grid */
+    .autoGrid {
+      grid-template-columns: repeat(var(--autoGridType), var(--autoGridWidth));
+      grid-auto-rows: 1fr;
+      grid-gap: var(--autoGridGap);
+      width: 100%;
+    }
+    .autoGrid:not(:empty):before {
+      content: '';
+      width: 0;
+      padding-bottom: var(--autoGridHeight);
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+    .autoGrid>*:first-child {
+      grid-row: 1 / 1;
+      grid-column: 1 / 1
+    }
+
+/* header and navbar */
+  .polyHead {
+    position: relative;
+    grid-auto-rows: max-content;
+  }
+  .polyHead>[type="checkbox"]{
+    display: none;
+  }
+  .polyHead a {
+    padding: var(--polyHeadVPadding-a) var(--polyHeadHPadding-a);
+    display: grid;
+    grid-auto-rows: var(--polyHeadHeight-row);
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .polyHead > p {
+    margin: 0;
+    height: var(--polyHeadHeight-nav);
+  }
+  .polyHead>nav {
+    height: var(--polyHeadHeight-nav);
+    display: grid;
+    grid-template-columns: var(--polyHeadColumns-nav);
+    grid-auto-rows: calc( var(--polyHeadHeight-nav) - ( var(--polyHeadPadding-nav) * 2 ) );
+    padding: var(--polyHeadPadding-nav);
+    max-width: 100%;
+  }
+  .polyHead>nav, .polyHead>nav>* {
+    grid-auto-flow: var(--polyHeadGridFlow);
+    align-items: center;
+  }
+  .polyHead>nav>* {
+    display: grid;
+    grid-auto-rows: var(--polyHeadHeight-row);
+    width: 100%;
+    justify-content: var(--polyHeadAlign-nav);
+    transition: all 0.2s ease;
+  }
+  .polyHead>nav>*:first-child:not(:last-child) {
+    justify-content: var(--polyHeadAlign-navPart1);
+  }
+  .polyHead>nav>*:not(:first-child):last-child {
+    justify-content: var(--polyHeadAlign-navPart2);
+  }
+  .polyHead>div {
+    height: var(--polyHeadHeight-div);
+  }
+  
+
+/* Modal */
+  .Modalinator {
+    position: fixed;
+    z-index: 1999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    padding: var(--modalMargin);
+  }
+  .Modalinator.active, :checked ~ .Modalinator {
+    display: grid;
+  }
+
+/* Button */
+
+
+.Ebtn{
+  background: linear-gradient(var(--buttonBackground1), var(--buttonBackground2));
+  height: var(--buttonHeight);
+  border: outset calc(1px + (var(--buttonHeight)/80)) var(--buttonBackground2);
+  font-size: var(--buttonFontSize);
+  outline: none;
+}
+.Ebtn:active {
+  border: inset calc(1px + (var(--buttonHeight)/80)) var(--buttonBackground2);
+}
+
+@media screen and (max-width: 991.98px) {
+  /* Header and navbar */
+  .polyHead>nav {
+    --polyHeadColumns-nav: var(--polyHeadResponsiveColumns-nav);
+  }
+  .polyHead>nav>:nth-child(2){
+    position: relative;
+    grid-column: 1 / span end;
+    grid-row: 2;
+    transform: scale(1,0);
+    transform-origin: top;
+    grid-auto-flow: row;
+    align-self: baseline;
+    margin-top: var(--polyHeadPadding-nav);
+    width: calc(100% + (var(--polyHeadPadding-nav)*2) );
+    left: calc(var(--polyHeadPadding-nav)*-1);
+    grid-auto-columns: 100%;
+    overflow: hidden;
+  }
+  .polyHead > :checked ~ nav> :nth-child(2), .polyHead > nav.active > :nth-child(2){
+    overflow: visible;
+    transform: scale(1);
+  }
+}
+@media screen and (min-width: 992px) {
+  /* Header and navbar */
+  .polyHead>nav> :first-child >label, .polyHead>nav> :first-child >label {
+    display: none;
+  }
+}
+@media (max-width: 575.98px) {
+  
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+
+@media (min-width: 1200px){
+
+}
