@@ -142,33 +142,7 @@
     border: inset calc(1px + (var(--buttonHeight)/80)) var(--buttonBackground2);
   }
 
-/* Carousel */
 
-  .TDN-Carousel {
-    display: grid;
-    height: var(--CarouselHeight);
-    width: var(--CarouselHeight);
-    grid-auto-columns: var(--CarouselColumn);
-    grid-auto-rows: var(--CarouselRow);
-    align-content: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .TDN-Carousel>:first-child {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 100%;
-    grid-auto-rows: 100%;
-  }
-  .TDN-Carousel> :not(:first-child){
-    width: 0;
-  }
-  .TDN-Carousel> [type="radio"]:checked + *, .TDN-Carousel> [type="radio"]:first-child + * {
-    width: 100%;
-  }
-  .TDN-Carousel> [type="radio"]:checked + *, .TDN-Carousel> [type="radio"]:first-child + * {
-    width: 100%;
-  }
 @media screen and (max-width: 991.98px) {
   /* Header and navbar */
   .polyHead>nav {
