@@ -88,7 +88,7 @@
     grid-auto-rows: var(--polyHeadHeight-row);
     justify-content: center;
     align-items: center;
-    height: var(--polyHeadHeight-nav);
+    height: calc( var(--polyHeadHeight-nav) - ( var(--polyHeadPadding-nav) * 2 ) );
   }
   .polyHead > p {
     margin: 0;
