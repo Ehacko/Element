@@ -112,7 +112,6 @@
     width: 100%;
     justify-content: var(--polyHeadAlign-nav);
     transition: all 0.2s ease;
-    overflow: hidden;
   }
   .polyHead>nav>*:first-child:not(:last-child) {
     justify-content: var(--polyHeadAlign-navPart1);
