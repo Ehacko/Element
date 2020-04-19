@@ -1,0 +1,13 @@
+/* Variable to configure elements's parameter */
+:root {
+  --TDN-height: 100%;
+  --TDN-width: 100%;
+  --TDN-Gap: initial;
+  --TDN-Columns: 1fr;
+  --TDN-Rows: 1fr;
+  --TDN-Align: initial;
+  --TDN-Justify: initial;
+  --TDN-Margin: initial;
+  --TDN-Flow: row;
+  --TDN-repeat: initial;
+}

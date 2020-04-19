@@ -1,0 +1,14 @@
+List of HTMLmodules:
+
+  - Simple:
+    * Button
+    * 
+
+  - Mixte:
+    * Navbar
+    * Menu
+
+  - Container:
+    * Header
+    * Grid
+    * Modal

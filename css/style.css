@@ -19,7 +19,7 @@ html, body {
   margin: 0;
 }
 body {
-  padding: 1em;
+  padding: 5em 1em;
 }
 body>h1,.elem>h3{
   text-align: center;
@@ -72,14 +72,12 @@ body>*,a{
       color: var(--FC-secondary);
     }
     .header1 .navlinks{
-      grid-auto-rows: 30px;
+      --polyHeadHeight-row: 30px;
       grid-auto-columns: minmax(50px, 100px);
-      grid-auto-flow: column;
-      width: 100%;
     }
     .header1 .navlinks a {
       text-decoration: none;
-      display: flex;
+      display: grid;
       align-items: center;
       justify-content: center;
     }
@@ -87,7 +85,6 @@ body>*,a{
       font-size: 115%;
     }
     .header1 .navicons a {
-      padding: 0.25em;
       font-size: 1.25em;
     }
     .header1 .navicons>:last-child {
@@ -101,45 +98,8 @@ body>*,a{
       --polyHeadPadding-nav: 0px;
       background-color: rgba(0,0,0,.25)
     }
-    .header2 .menu{
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      display: grid;
-      grid-auto-columns: minmax(50px, 250px);
-      grid-auto-flow: column;
-      height: 100%;
-    }
-    .header2 .menu * {
-      height: 100%;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .header2 .menu>div {
-      position: relative;
-    }
-    .header2 .submenu{
-      position: absolute;
-      top: 100%;
-      height: 0;
-      overflow: hidden;
-      transition: all .2s ease;
-    }
-    .header2 .submenu a,.header2 :hover>.fakelink{
+    .header2 .TDN-menu:hover, .header2 .TDN-menu:hover>:last-child {
       background-color: rgba(0,0,0,.5);
-    }
-
-    .header2 .fakelink{
-      cursor: pointer;
-    }
-    .header2 .fakelink, .header2 .submenu a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    :hover>.submenu{
-      height: 100%;
-      overflow: visible;
     }
     
     .header2 .navicons a:hover {
@@ -162,4 +122,50 @@ body>*,a{
 }
 .grid2>*{
   background-color: lightcoral;
+}
+
+
+.elem .menu{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-auto-columns: minmax(50px, 250px);
+  grid-auto-flow: column;
+  height: 100%;
+}
+.elem .menu * {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.elem .menu>div {
+  position: relative;
+}
+.elem .submenu{
+  position: absolute;
+  top: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: all .2s ease;
+}
+.elem .submenu a,.elem :hover>.fakelink{
+  background-color: rgba(0,0,0,.5);
+}
+
+.elem .fakelink{
+  cursor: pointer;
+}
+.elem .fakelink, .elem .submenu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:hover>.submenu{
+  height: 100%;
+  overflow: visible;
+}
+
+.elem .navicons a:hover {
+  text-shadow: 0 0 15px var(--FC-secondary);
 }
