@@ -8,8 +8,10 @@ List of HTMLmodules:
     * Navbar
     * Menu
     * Form
+    * Slider
+    * Slide
 
-  - Container:
+  - Container(Cannot be put in modules):
     * Header
     * Grid
     * Modal
