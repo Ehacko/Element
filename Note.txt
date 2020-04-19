@@ -1,19 +1,32 @@
 List of HTMLmodules:
 
-  - Simple(Cannot contain modules):
-    * Button
-    * 
+  * Simple(Cannot contain modules):
 
-  - Mixte(Cannot be put outside modules):
-    * Navbar
-    * Menu
-    * Form
-    * Slider
-    * Slide
+    - Contained(Cannot be put outside modules)
 
-  - Container(Cannot be put in modules):
-    * Header
-    * Grid
-    * Modal
-    * Carousel
-    * Footer
+    - Mixte(Can be put inside or outside modules)
+
+      1. Button
+
+    - Container(Cannot be put inside modules)
+
+  * Complex(Can contain modules):
+
+    - Contained(Cannot be put outside modules)
+
+      1. Slider
+      2. Slide
+      3. Menu
+      4. Form
+
+    - Mixte(Can be put inside or outside modules)
+
+      1. Carousel
+      2. Navbar
+
+    - Container(Cannot be put inside modules)
+
+      1. Header
+      2. Grid
+      3. Modal
+      4. Footer
