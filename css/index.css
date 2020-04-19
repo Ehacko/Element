@@ -1,0 +1,15 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body>h1, body>.module>.test>h3{
+    text-align: center;
+}
+body>.module {
+    border: 3px double black;
+    margin: 1em;
+}
+body>.module>.test {
+    border: 1px solid grey;
+    margin: .5em;
+}
