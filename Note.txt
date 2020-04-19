@@ -7,8 +7,11 @@ List of HTMLmodules:
   - Mixte:
     * Navbar
     * Menu
+    * Form
 
   - Container:
     * Header
     * Grid
     * Modal
+    * Carousel
+    * Footer

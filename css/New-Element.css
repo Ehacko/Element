@@ -1,13 +1,24 @@
 /* Variable to configure elements's parameter */
 :root {
-  --TDN-height: 100%;
-  --TDN-width: 100%;
-  --TDN-Gap: initial;
-  --TDN-Columns: 1fr;
-  --TDN-Rows: 1fr;
-  --TDN-Align: initial;
-  --TDN-Justify: initial;
-  --TDN-Margin: initial;
-  --TDN-Flow: row;
-  --TDN-repeat: initial;
+  /* global parameter */
+    --TDN-TitleFont: serif;
+    --TDN-FontA: sans-serif;
+    --TDN-FontB: cursive;
+    --TDN-FontSize: 100%;
+
+  /* Element parameter */
+    --TDN-height: 100%;
+    --TDN-width: 100%;
+    --TDN-Gap: initial;
+    --TDN-Columns: 1fr;
+    --TDN-Rows: 1fr;
+    --TDN-Align: initial;
+    --TDN-Justify: initial;
+    --TDN-Margin: initial;
+    --TDN-PaddingLeft: initial;
+    --TDN-PaddingRight: var(--TDN-Padding-left);
+    --TDN-PaddingTop: var(--TDN-PaddingLeft);
+    --TDN-PaddingBottom: var(--TDN-PaddingTop);
+    --TDN-Flow: row;
+    --TDN-repeat: initial;
 }
