@@ -4,11 +4,21 @@ List of HTMLmodules:
 
     - Contained(Cannot be put outside modules)
 
+
     - Mixte(Can be put inside or outside modules)
 
-      1. Button
+      1. Button(.TDNbtn)
+      2. List(.TDNlist)
+      3. ProgressBar(.TDNprogbar)
+      4. Card(.TDNcard)
+      5. Notification(.TDNnotif)
+      6. Searchbar
+      7. Switch
+      8. Calendar
 
     - Container(Cannot be put inside modules)
+
+      1. Pagination
 
   * Complex(Can contain modules):
 
@@ -18,15 +28,17 @@ List of HTMLmodules:
       2. Slide
       3. Menu
       4. Form
+      5. Collapse
+      6. Popover
 
     - Mixte(Can be put inside or outside modules)
 
       1. Carousel
       2. Navbar
+      3. Grid
 
     - Container(Cannot be put inside modules)
 
       1. Header
-      2. Grid
-      3. Modal
-      4. Footer
+      2. Modal
+      3. Footer
