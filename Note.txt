@@ -1,10 +1,10 @@
 List of HTMLmodules:
 
-  - Simple:
+  - Simple(Cannot contain modules):
     * Button
     * 
 
-  - Mixte:
+  - Mixte(Cannot be put outside modules):
     * Navbar
     * Menu
     * Form
