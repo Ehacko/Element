@@ -20,12 +20,12 @@ List of HTMLmodules:
       4. Card(.TDN-card)
       5. Notification(.TDN-notif)
       6. Searchbar(.TDN-search)
-      7. Switch(TDN-switch)
-      8. Calendar
+      7. Switch(.TDN-switch)
+      8. Calendar(.TDN-date)
 
     - Container(Cannot be put inside modules)
 
-      1. Pagination
+      1. Pagination(.TDN-page)
 
   * Complex(Can contain modules):
 
