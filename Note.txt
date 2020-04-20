@@ -1,3 +1,10 @@
+Z-Index {
+  Relative: 0-999;
+  Absolute: 1000-1999;
+  Sticky: 2000-2999;
+  Fixed: 3000-3999;
+}
+
 List of HTMLmodules:
 
   * Simple(Cannot contain modules):
@@ -7,13 +14,13 @@ List of HTMLmodules:
 
     - Mixte(Can be put inside or outside modules)
 
-      1. Button(.TDNbtn)
-      2. List(.TDNlist)
-      3. ProgressBar(.TDNprogbar)
-      4. Card(.TDNcard)
-      5. Notification(.TDNnotif)
-      6. Searchbar
-      7. Switch
+      1. Button(.TDN-btn)
+      2. List(.TDN-list)
+      3. ProgressBar(.TDN-progbar)
+      4. Card(.TDN-card)
+      5. Notification(.TDN-notif)
+      6. Searchbar(.TDN-search)
+      7. Switch(TDN-switch)
       8. Calendar
 
     - Container(Cannot be put inside modules)
@@ -30,6 +37,7 @@ List of HTMLmodules:
       4. Form
       5. Collapse
       6. Popover
+      7. Breadcrumb
 
     - Mixte(Can be put inside or outside modules)
 
