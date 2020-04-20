@@ -16,7 +16,7 @@ List of HTMLmodules:
 
       1. Button(.TDN-btn)
       2. List(.TDN-list)
-      3. ProgressBar(.TDN-progbar)
+      3. ProgressBar(.TDN-pgbar)
       4. Card(.TDN-card)
       5. Notification(.TDN-notif)
       6. Searchbar(.TDN-search)
@@ -31,22 +31,22 @@ List of HTMLmodules:
 
     - Contained(Cannot be put outside modules)
 
-      1. Slider
-      2. Slide
-      3. Menu
-      4. Form
-      5. Collapse
-      6. Popover
-      7. Breadcrumb
+      1. Slider(.TDN-slider)
+      2. Slide(.TDN-slide)
+      3. Menu(.TDN-menu)
+      4. Form(.TDN-form)
+      5. Collapse(.TDN-clps)
+      6. Popover(.TDN-ppv)
+      7. Breadcrumb(.TDN-bdb)
 
     - Mixte(Can be put inside or outside modules)
 
-      1. Carousel
-      2. Navbar
-      3. Grid
+      1. Carousel(.TDN-carousel)
+      2. Navbar(.TDN-nav)
+      3. Grid(.TDN-grid)
 
     - Container(Cannot be put inside modules)
 
-      1. Header
-      2. Modal
-      3. Footer
+      1. Header(.TDN-head)
+      2. Modal(.TDN-modal)
+      3. Footer(.TDN-foot)
