@@ -22,6 +22,7 @@ List of HTMLmodules:
       6. Searchbar(.TDN-search)
       7. Switch(.TDN-switch)
       8. Calendar(.TDN-date)
+      9. Form(.TDN-form)
 
     - Container(Cannot be put inside modules)
 
@@ -33,17 +34,17 @@ List of HTMLmodules:
 
       1. Slider(.TDN-slider)
       2. Slide(.TDN-slide)
-      3. Menu(.TDN-menu)
-      4. Form(.TDN-form)
-      5. Collapse(.TDN-clps)
-      6. Popover(.TDN-ppv)
-      7. Breadcrumb(.TDN-bdb)
+      3. Dropdown(.TDN-dp)
+      4. Collapse(.TDN-clps)
+      5. Popover(.TDN-ppv)
+      6. Breadcrumb(.TDN-bdb)
 
     - Mixte(Can be put inside or outside modules)
 
-      1. Carousel(.TDN-carousel)
-      2. Navbar(.TDN-nav)
-      3. Grid(.TDN-grid)
+      1. Box(.TDN-box)
+      2. Carousel(.TDN-carousel)
+      3. Navbar(.TDN-nav)
+      4. Grid(.TDN-grid)
 
     - Container(Cannot be put inside modules)
 
