@@ -140,9 +140,6 @@
     align-content: center;
     justify-content: center;
   }
-  .TDN-menu>[type="radio"], .TDN-menu>[type="checkbox"] {
-    display: none;
-  }
   .TDN-menu>:last-child {
     display: inline-grid;
     grid-auto-rows: var(--polyHeadHeight-nav);

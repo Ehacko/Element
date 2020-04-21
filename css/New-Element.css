@@ -21,4 +21,44 @@
     --TDN-PaddingBottom: var(--TDN-PaddingTop);
     --TDN-Flow: row;
     --TDN-repeat: initial;
+    --TDN-R: 255;
+    --TDN-G: 255;
+    --TDN-B: 255;
+}
+
+.TDN-head, .TDN-modal.active, :checked+.TDN-modal, .TDN-foot, .TDN-nav, .TDN-box {
+  display: grid;
+}
+.TDN-head>[type="checkbox"], .TDN-modal {
+  display: none;
+}
+.TDN-head, .TDN-foot {
+  position: relative;
+  grid-template-columns: var(--TDN-Columns);
+  grid-template-rows: var(--TDN-rows);
+  grid-auto-rows: max-content;
+}
+
+.TDN-btn{
+
+  padding: 2px 6px;
+  background: linear-gradient(
+    rgb(var(--TDN-R), var(--TDN-G), var(--TDN-B)),
+    rgb(calc(var(--TDN-R)*0.9), calc(var(--TDN-G)*0.9), calc(var(--TDN-B)*0.9))
+  );
+  border: solid 1px rgb(calc(var(--TDN-R)*0.9), calc(var(--TDN-G)*0.9), calc(var(--TDN-B)*0.9));
+  border-radius: 2px;
+  outline: none;
+}
+.TDN-btn:hover {
+  border-color: rgb(calc(var(--TDN-R)*0.5), calc(var(--TDN-G)*0.5), calc(var(--TDN-B)*0.5));
+}
+.TDN-btn:active {
+
+  background: linear-gradient(
+    rgb(calc(var(--TDN-R)*0.9), calc(var(--TDN-G)*0.9), calc(var(--TDN-B)*0.9)),
+    rgb(var(--TDN-R), var(--TDN-G), var(--TDN-B))
+  );
+  border-color: rgb(calc(var(--TDN-R)*0.7), calc(var(--TDN-G)*0.7), calc(var(--TDN-B)*0.7));
+
 }

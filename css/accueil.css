@@ -61,6 +61,7 @@ body>*,a{
   /* header1 */
     .header1 {
       box-shadow: 0 0 4px black;
+      z-index: 3;
     }
     .header1 a {
       transition: all 0.5s;
@@ -96,7 +97,8 @@ body>*,a{
   /* header2 */
     .header2{
       --polyHeadPadding-nav: 0px;
-      background-color: rgba(0,0,0,.25)
+      background-color: rgba(0,0,0,.25);
+      z-index: 2;
     }
     .header2 .TDN-menu:hover, .header2 .TDN-menu:hover>:last-child {
       background-color: rgba(0,0,0,.5);
