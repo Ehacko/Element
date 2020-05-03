@@ -12,4 +12,6 @@ body>.module {
 body>.module>.test {
     border: 1px solid grey;
     margin: .5em;
+    padding: 0.5em;
+    text-align: center;
 }

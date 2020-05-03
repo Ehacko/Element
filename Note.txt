@@ -47,7 +47,4 @@ List of HTMLmodules:
       4. Grid(.TDN-grid)
 
     - Container(Cannot be put inside modules)
-
-      1. Header(.TDN-head)
-      2. Modal(.TDN-modal)
-      3. Footer(.TDN-foot)
+      1. Modal(.TDN-modal)

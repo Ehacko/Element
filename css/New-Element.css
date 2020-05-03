@@ -1,12 +1,11 @@
 /* Variable to configure elements's parameter */
 :root {
-  /* global parameter */
+  /* Format parameter */
     --TDN-TitleFont: serif;
     --TDN-FontA: sans-serif;
     --TDN-FontB: cursive;
-    --TDN-FontSize: 100%;
 
-  /* Element parameter */
+  /* Layout parameter */
     --TDN-height: 100%;
     --TDN-width: 100%;
     --TDN-Gap: initial;
@@ -21,22 +20,46 @@
     --TDN-PaddingBottom: var(--TDN-PaddingTop);
     --TDN-Flow: row;
     --TDN-repeat: initial;
+  /* Style parameter */
     --TDN-R: 255;
     --TDN-G: 255;
     --TDN-B: 255;
+    --TDN-A: 1;
 }
-
+.TDN-head{
+  --TDN-Rows: 4em 8em 3em
+}
 .TDN-head, .TDN-modal.active, :checked+.TDN-modal, .TDN-foot, .TDN-nav, .TDN-box {
   display: grid;
+  grid-template-columns: var(--TDN-Columns);
+  grid-auto-rows: var(--TDN-rows);
+}
+.TDN-modal {
+  --TDN-Margin: 2.5em;
+  --TDN-A: 0.5;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: var(--TDN-Margin);
+}
+.TDN-modal.full {
+  margin: 0;
+  padding: var(--TDN-Margin);
+  background-color: rgba(calc(var(--TDN-R)*0.1), calc(var(--TDN-G)*0.1), calc(var(--TDN-B)*0.1), var(--TDN-A));
+}
+.TDN-modal, .TDN-modal.full>*, .TDN-modal.full:empty::before {
+  background-color: rgb(var(--TDN-R), var(--TDN-G), var(--TDN-B));
+}
+.TDN-modal.full:empty::before {
+  content: "";
 }
 .TDN-head>[type="checkbox"], .TDN-modal {
   display: none;
 }
 .TDN-head, .TDN-foot {
   position: relative;
-  grid-template-columns: var(--TDN-Columns);
-  grid-template-rows: var(--TDN-rows);
-  grid-auto-rows: max-content;
 }
 
 .TDN-btn{
@@ -49,6 +72,11 @@
   border: solid 1px rgb(calc(var(--TDN-R)*0.9), calc(var(--TDN-G)*0.9), calc(var(--TDN-B)*0.9));
   border-radius: 2px;
   outline: none;
+  justify-content: center;
+  align-content: center;
+  text-decoration: none;
+  color: black;
+  font: 400 13.3333px Arial;
 }
 .TDN-btn:hover {
   border-color: rgb(calc(var(--TDN-R)*0.5), calc(var(--TDN-G)*0.5), calc(var(--TDN-B)*0.5));

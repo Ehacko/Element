@@ -17,12 +17,27 @@
         <h2>Header: </h2>
         <div class="test">
             <h3>header1</h3>
+            <div class="TDN-head">
+                <div><a href="nolink">divA</a></div>
+                <div><button>divB</button></div>
+                <div><caption>divC</caption></div>
+            </div>
         </div>
         <div class="test">
             <h3>header2</h3>
+            <div class="TDN-head">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
         <div class="test">
             <h3>header3</h3>
+            <div class="TDN-head">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     </div>
 
@@ -33,9 +48,13 @@
         <h2>Modal: </h2>
         <div class="test">
             <h3>modal1</h3>
+            <button class="TDN-btn" onclick="this.parentElement.children[2].classList.add('active')">button(btn)</button>
+            <div class="TDN-modal"></div>
         </div>
         <div class="test">
             <h3>modal2</h3>
+            <a href="javascript:void(0);" class="TDN-btn" onclick="this.parentElement.children[2].classList.add('active')">button(a)</a>
+            <div class="TDN-modal full"></div>
         </div>
         <div class="test">
             <h3>modal3</h3>
