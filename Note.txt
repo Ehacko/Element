@@ -20,9 +20,8 @@ List of HTMLmodules:
       4. List(.M-list)
       5. ProgressBar(.M-bar)
       6. Pagination(.M-page)
-      7. Notification(.M-notif)
-      8. Searchbar(.M-search)
-      9. Switch(.M-switch)
+      7. Searchbar(.M-search)
+      8. Switch(.M-switch)
 
     - Container(Cannot be put inside modules)
 

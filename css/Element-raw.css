@@ -175,13 +175,6 @@ input {
   background-color: blue;
   color: white;
 }
-/* -Notification- */
-
-  /* Type 1 */
-  .M-notif {
-    float: left;
-    vertical-align: top;
-  }
 
 /* -Searchbar- */
 
@@ -230,6 +223,13 @@ input {
 }
 
 /* -Switch- */
+
+.M-switch {
+  visibility: hidden;
+}
+.M-switch::before{
+  content: "";
+}
 
 
           /**************************************/

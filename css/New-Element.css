@@ -1,6 +1,6 @@
 /* Variable to configure elements's parameter */
 :root {
-  
+
   /* Format parameter */
 
     --M-TitleFont: serif;
@@ -186,4 +186,23 @@
 }
 .M-form {
 
+}
+
+[contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
+.M-search:not([contenteditable]):not(input):not(textarea) {
+  /* input outer style */
+}
+[contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
+.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
+.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
+.M-search:not([contenteditable]):not(input):not(textarea)> textarea {
+  /* input style without outer style */
+}
+
+.M-search:not([contenteditable]):not(input):not(textarea) {
+  display: grid;
+}
+.M-search:not([contenteditable]):not(input):not(textarea)> i {
+  grid-column: 1;
+  grid-row: 1;
 }
