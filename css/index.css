@@ -15,3 +15,31 @@ body>.module>.test {
     padding: 0.5em;
     text-align: center;
 }
+.T-1{
+    height: 5em;
+}
+#header{
+    --M-Columns: 25%
+}
+.T-1>*{
+    border: 1px solid;
+}
+.T-1:nth-child(odd)>:nth-child(1), .T-1:nth-child(even)>:nth-child(3) {
+    background-color: aliceblue;
+}
+.T-1:nth-child(odd)>:nth-child(2), .T-1:nth-child(even)>:nth-child(1){
+    background-color: antiquewhite;
+}
+.T-1:nth-child(odd)>:nth-child(3), .T-1:nth-child(even)>:nth-child(2){
+    background-color: aqua;
+}
+a.M-btn{
+    --M-R: 0;
+    --M-G: 0;
+}
+.FC-B>:not(:first-child){
+    background-color: rgba(255, 255, 255, .9);
+}
+.FC-B>:first-child{
+    background-color: blue;
+}

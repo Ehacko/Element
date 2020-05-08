@@ -1,92 +1,189 @@
 /* Variable to configure elements's parameter */
 :root {
+  
   /* Format parameter */
-    --TDN-TitleFont: serif;
-    --TDN-FontA: sans-serif;
-    --TDN-FontB: cursive;
+
+    --M-TitleFont: serif;
+    --M-FontA: sans-serif;
+    --M-FontB: cursive;
 
   /* Layout parameter */
-    --TDN-height: 100%;
-    --TDN-width: 100%;
-    --TDN-Gap: initial;
-    --TDN-Columns: 1fr;
-    --TDN-Rows: 1fr;
-    --TDN-Align: initial;
-    --TDN-Justify: initial;
-    --TDN-Margin: initial;
-    --TDN-PaddingLeft: initial;
-    --TDN-PaddingRight: var(--TDN-Padding-left);
-    --TDN-PaddingTop: var(--TDN-PaddingLeft);
-    --TDN-PaddingBottom: var(--TDN-PaddingTop);
-    --TDN-Flow: row;
-    --TDN-repeat: initial;
+
+    --M-height: 100%;
+    --M-width: 100%;
+    --M-gap: initial;
+    --M-Columns: 1fr;
+    --M-Rows: 1fr;
+    --M-Align: initial;
+    --M-Justify: initial;
+    --M-Margin: initial;
+    --M-paddingLeft: initial;
+    --M-paddingRight: var(--M-padding-left);
+    --M-paddingTop: var(--M-paddingLeft);
+    --M-paddingBottom: var(--M-paddingTop);
+    --M-flow: row;
+    --M-repeat: initial;
+    --M-type: auto;
+    --M-Xpos: auto;
+    --M-Ypos: auto;
+    --M-Xsize: 1;
+    --M-Ysize: 1;
+    --M-shader: 0.5;
+    
   /* Style parameter */
-    --TDN-R: 255;
-    --TDN-G: 255;
-    --TDN-B: 255;
-    --TDN-A: 1;
+
+    /* Red bits variables */
+    --M-PrimaryR: 255;
+    --M-SecondaryR: 255;
+    --M-Red: 255;
+    /* Green bits variables */
+    --M-PrimaryG: 255;
+    --M-SecondaryG: 255;
+    --M-Green: 255;
+    /* Blue bits variables */
+    --M-PrimaryB: 255;
+    --M-SecondaryB: 255;
+    --M-Blue: 255;
+    /* Opacity variables */
+    --M-PrimaryA: 1;
+    --M-SecondaryA: 1;
+    --M-A: 1;
+    
 }
-.TDN-head{
-  --TDN-Rows: 4em 8em 3em
-}
-.TDN-head, .TDN-modal.active, :checked+.TDN-modal, .TDN-foot, .TDN-nav, .TDN-box {
-  display: grid;
-  grid-template-columns: var(--TDN-Columns);
-  grid-auto-rows: var(--TDN-rows);
-}
-.TDN-modal {
-  --TDN-Margin: 2.5em;
-  --TDN-A: 0.5;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: var(--TDN-Margin);
-}
-.TDN-modal.full {
-  margin: 0;
-  padding: var(--TDN-Margin);
-  background-color: rgba(calc(var(--TDN-R)*0.1), calc(var(--TDN-G)*0.1), calc(var(--TDN-B)*0.1), var(--TDN-A));
-}
-.TDN-modal, .TDN-modal.full>*, .TDN-modal.full:empty::before {
-  background-color: rgb(var(--TDN-R), var(--TDN-G), var(--TDN-B));
-}
-.TDN-modal.full:empty::before {
-  content: "";
-}
-.TDN-head>[type="checkbox"], .TDN-modal {
-  display: none;
-}
-.TDN-head, .TDN-foot {
-  position: relative;
+/* dependent variables */
+[class*="M-"] {
+  /* constrast variable. if background-color is dark, --M-Color equal 255 else --M-color equal 0 */
+  --M-Color: calc(((((var(--M-Red) * 299) + (var(--M-Green) * 587) + (var(--M-Blue) * 114)) / 1000) - 128) * -1000);
+  /* dependence of the variables "padding" on the variable "--M-padding-left"*/
+  --M-paddingRight: var(--M-paddingLeft);
+  --M-paddingTop: var(--M-paddingLeft);
+  --M-paddingBottom: var(--M-paddingTop);
 }
 
-.TDN-btn{
+.M-box.T-1{
+  grid-template-columns: auto auto auto;
+}
+/* positionment of childs */
+.M-box.T-1:nth-child(odd)>:first-child,
+.M-box.T-1:nth-child(even)>:nth-child(3) {
+  grid-row: 1/span 2;
+}
+.M-box.T-1:nth-child(even)>:nth-child(3) {
+  grid-column-end: -1;
+}
+.M-box.T-1:nth-child(odd)>:nth-child(-n+3):not(:first-child),
+.M-box.T-1:nth-child(even)>:nth-child(-n+2) {
+  grid-column: auto / span 2;
+}
+.M-box:not([class*="T-"])>*{
+  grid-row: var(--M-Ypos)/span var(--M-Ysize);
+  grid-column: var(--M-Xpos)/span var(--M-Xsize);
+}
+
+/*Gap between childs */
+.M-grid, .M-box{
+  gap: var(--M-Greenap);
+}
+/* inline level element */
+.M-card, .M-menu, .M-menu>:first-child, .M-menu>:last-child{
+  display: inline-grid;
+}
+/* block level element */
+.M-head, .M-grid, .M-modal.active, :checked+.M-modal, .M-foot, .M-nav, .M-box{
+  display: grid;
+}
+
+
+.M-grid {
+  grid-template-columns: repeat(var(--M-type), var(--M-Columns));
+  grid-auto-rows: 1fr;
+  width: var(--M-width);
+}
+.M-grid:not(:empty):before {
+  content: '';
+  width: 0;
+  padding-bottom: var(--M-Redows);
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+}
+.M-grid>*:first-child {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1
+}
+
+.M-menu {
+  grid-template-rows: 100%;
+  width: 100%;
+  height: 100%;
+}
+.M-menu>:first-child {
+  align-content: center;
+  justify-content: center;
+}
+.M-menu>:last-child {
+  grid-auto-rows: var(--polyHeadHeight-nav);
+  transform: scale(1,0);
+  transform-origin: top;
+}
+.M-menu:hover>:last-child {
+  transform: scale(1);
+}
+
+.M-btn{
 
   padding: 2px 6px;
   background: linear-gradient(
-    rgb(var(--TDN-R), var(--TDN-G), var(--TDN-B)),
-    rgb(calc(var(--TDN-R)*0.9), calc(var(--TDN-G)*0.9), calc(var(--TDN-B)*0.9))
+    rgb(var(--M-Red), var(--M-Green), var(--M-Blue)),
+    rgb(calc(var(--M-Red)*0.9), calc(var(--M-Green)*0.9), calc(var(--M-Blue)*0.9))
   );
-  border: solid 1px rgb(calc(var(--TDN-R)*0.9), calc(var(--TDN-G)*0.9), calc(var(--TDN-B)*0.9));
+  border: solid 1px rgb(calc(var(--M-Red)*0.9), calc(var(--M-Green)*0.9), calc(var(--M-Blue)*0.9));
   border-radius: 2px;
   outline: none;
   justify-content: center;
   align-content: center;
   text-decoration: none;
-  color: black;
+  color: rgb(var(--M-Color),var(--M-Color),var(--M-Color));
   font: 400 13.3333px Arial;
 }
-.TDN-btn:hover {
-  border-color: rgb(calc(var(--TDN-R)*0.5), calc(var(--TDN-G)*0.5), calc(var(--TDN-B)*0.5));
+.M-btn:hover {
+  border-color: rgb(calc(var(--M-Red)/2), calc(var(--M-Green)/2), calc(var(--M-Blue)/2));
 }
-.TDN-btn:active {
-
+.M-btn:active {
   background: linear-gradient(
-    rgb(calc(var(--TDN-R)*0.9), calc(var(--TDN-G)*0.9), calc(var(--TDN-B)*0.9)),
-    rgb(var(--TDN-R), var(--TDN-G), var(--TDN-B))
+    rgb(calc(var(--M-Red)*0.9), calc(var(--M-Green)*0.9), calc(var(--M-Blue)*0.9)),
+    rgb(var(--M-Red), var(--M-Green), var(--M-Blue))
   );
-  border-color: rgb(calc(var(--TDN-R)*0.7), calc(var(--TDN-G)*0.7), calc(var(--TDN-B)*0.7));
+  border-color: rgb(calc(var(--M-Red)*0.7), calc(var(--M-Green)*0.7), calc(var(--M-Blue)*0.7));
+
+}
+.M-list{
+
+}
+.M-bar{
+
+}
+.M-card{
+  position: relative;
+  margin: var(--M-Margin);
+  width: var(--M-width);
+  height: var(--M-height);
+}
+.M-card.T-2>:first-child{
+  position: absolute;
+  width: var(--M-width);
+  height: var(--M-height);
+  z-index: -1;
+}
+.M-card.T-2>:nth-child(2){
+  --M-paddingBottom: var(--M-paddingLeft);
+  margin: var(--M-paddingTop) var(--M-paddingRight) var(--M-paddingBottom) var(--M-paddingLeft);
+}
+.M-Notif{
+
+}
+.M-switch{
+
+}
+.M-form {
 
 }

@@ -129,26 +129,7 @@
 
 /* Dropdown menu */
 
-  .TDN-menu {
-    display: inline-grid;
-    grid-template-rows: 100%;
-    width: 100%;
-    height: 100%;
-  }
-  .TDN-menu>:first-child {
-    display: inline-grid;
-    align-content: center;
-    justify-content: center;
-  }
-  .TDN-menu>:last-child {
-    display: inline-grid;
-    grid-auto-rows: var(--polyHeadHeight-nav);
-    transform: scale(1,0);
-    transform-origin: top;
-  }
-  .TDN-menu:hover>:last-child {
-    transform: scale(1);
-  }
+  
 /* Modal */
   .Modalinator {
     position: fixed;
@@ -239,4 +220,24 @@
 
 @media (min-width: 1200px){
 
+}
+.M-menu {
+  display: inline-grid;
+  grid-template-rows: 100%;
+  width: 100%;
+  height: 4em;
+}
+.M-menu>:first-child {
+  display: inline-grid;
+  align-content: center;
+  justify-content: center;
+}
+.M-menu>:last-child {
+  display: inline-grid;
+  grid-auto-rows: var(--polyHeadHeight-nav);
+  transform: scale(1,0);
+  transform-origin: top;
+}
+.M-menu:hover>:last-child {
+  transform: scale(1);
 }

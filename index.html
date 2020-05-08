@@ -17,15 +17,22 @@
         <h2>Header: </h2>
         <div class="test">
             <h3>header1</h3>
-            <div class="TDN-head">
-                <div><a href="nolink">divA</a></div>
-                <div><button>divB</button></div>
-                <div><caption>divC</caption></div>
+            <div>
+                <div class="M-box T-1">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div></div>
+                </div>
+                <div class="M-box T-1">
+                    <div></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>
         </div>
         <div class="test">
             <h3>header2</h3>
-            <div class="TDN-head">
+            <div class="M-head">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -33,7 +40,7 @@
         </div>
         <div class="test">
             <h3>header3</h3>
-            <div class="TDN-head">
+            <div class="M-head">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -48,16 +55,22 @@
         <h2>Modal: </h2>
         <div class="test">
             <h3>modal1</h3>
-            <button class="TDN-btn" onclick="this.parentElement.children[2].classList.add('active')">button(btn)</button>
-            <div class="TDN-modal"></div>
+            <button class="M-btn" onclick="this.parentElement.children[2].classList.add('active')">button(btn)</button>
+            <div class="M-modal"></div>
         </div>
         <div class="test">
             <h3>modal2</h3>
-            <a href="javascript:void(0);" class="TDN-btn" onclick="this.parentElement.children[2].classList.add('active')">button(a)</a>
-            <div class="TDN-modal full"></div>
+            <a href="javascript:void(0);" class="M-btn" onclick="this.parentElement.children[2].classList.add('active')">button(a)</a>
+            <div class="M-modal full"></div>
         </div>
         <div class="test">
             <h3>modal3</h3>
+            <div style=" height: 250px; padding: 0px 42.5%;">
+                <div class="M-card T-2 FC-B" style="--M-PaddingLeft: 40px;">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
         </div>
     </div>
     

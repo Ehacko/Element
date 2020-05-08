@@ -1,0 +1,52 @@
+/* Variable to configure elements's parameter */
+:root {
+  
+  /* Format parameter */
+
+    --M-TitleFont: serif;
+    --M-FontA: sans-serif;
+    --M-FontB: cursive;
+
+  /* Layout parameter */
+
+    --M-height: 100%;
+    --M-width: 100%;
+    --M-gap: initial;
+    --M-Columns: 1fr;
+    --M-Rows: 1fr;
+    --M-Align: initial;
+    --M-Justify: initial;
+    --M-Margin: initial;
+    --M-paddingLeft: initial;
+    --M-paddingRight: var(--M-padding-left);
+    --M-paddingTop: var(--M-paddingLeft);
+    --M-paddingBottom: var(--M-paddingTop);
+    --M-flow: row;
+    --M-repeat: initial;
+    --M-type: auto;
+    --M-Xpos: auto;
+    --M-Ypos: auto;
+    --M-Xsize: 1;
+    --M-Ysize: 1;
+    --M-shader: 0.5;
+    
+  /* Style parameter */
+
+    /* Red bits variables */
+    --M-PrimaryR: 255;
+    --M-SecondaryR: 255;
+    --M-Red: 255;
+    /* Green bits variables */
+    --M-PrimaryG: 255;
+    --M-SecondaryG: 255;
+    --M-Green: 255;
+    /* Blue bits variables */
+    --M-PrimaryB: 255;
+    --M-SecondaryB: 255;
+    --M-Blue: 255;
+    /* Opacity variables */
+    --M-PrimaryA: 1;
+    --M-SecondaryA: 1;
+    --M-A: 1;
+    
+}
