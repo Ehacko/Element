@@ -29,6 +29,8 @@
     --M-Xsize: 1;
     --M-Ysize: 1;
     --M-shader: 0.5;
+    --M-radius: 0;
+    --M-border: none;
     
   /* Style parameter */
 
@@ -50,7 +52,7 @@
     --M-A: 1;
     
 }
-input {
+input[class*="M-"], [class*="M-"] > input {
   border-style: double;
   border-width: 1px;
   border-radius: 2.5px;
@@ -226,16 +228,137 @@ input {
   background-color: blue;
   color: white;
 }
-/* -Notification- */
-
-  /* Type 1 */
 
 /* -Searchbar- */
-
+.M-search{
+  --M-width: 50%
+}
   /* Type 1 */
+[contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
+.M-search:not([contenteditable]):not(input):not(textarea) {
+  position: relative;
+  overflow: hidden;
+  width: 50%;
+  border-radius: 50px;
+  margin: 0em;
+  margin: 5px;
+  border: 1px double #575756;
+  box-sizing: border-box;
+}
+[contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
+.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
+.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
+.M-search:not([contenteditable]):not(input):not(textarea)> textarea {
+  
+  padding: 12px 24px;
+  font-size: 14px;
+  line-height: 18px;
+  outline: 0;
+  
+  /* inputifinator */
+  background-color: white;
+  text-indent: 0px;
+  display: inline-block;
+  text-align: start;
+  cursor: text;
+  font: 400 13.3333px Arial;
 
+}
+
+.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
+.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
+.M-search:not([contenteditable]):not(input):not(textarea)> textarea {
+  border: none;
+  border-radius: 50px;
+}
+.M-search:not([contenteditable]):not(input):not(textarea) {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto ;
+}
+
+[contenteditable].M-search:empty::before,
+input[type="text"].M-search:empty::before,
+textarea.M-search:empty::before,
+.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable]:empty::before,
+.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"]:empty::before,
+.M-search:not([contenteditable]):not(input):not(textarea)> textarea:empty::before {
+  content: attr(placeholder);
+  color: #575756;
+}
+.M-search:not([contenteditable]):not(input):not(textarea)> i {
+  height: fit-content;
+  width: fit-content;
+  align-self: center;
+  margin: 0 2.5px;
+} 
+  /* Type 2 */
+[contenteditable].M-search.T-2, input[type="text"].M-search.T-2, textarea.M-search.T-2,
+.M-search:not([contenteditable]):not(input):not(textarea).T-2 {
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 0;
+}
+  
 /* -Switch- */
+.M-switch {
+  --M-width: 4em;
+  --M-height: 1.5em;
+  --M-radius: 2.5px;
+}
+.M-switch > *, .M-switch:empty {
+              
+  position: relative;
+  display: inline-grid;
+  width: var(--M-width);
+  height: var(--M-height);
+  cursor: pointer;
+  border-radius: var(--M-radius);
+  transition: 350ms;
+  border: .75em solid #ddd;
+  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
+  box-shadow: 0 0.07em 0.1em -0.1em rgba(0, 0, 0, 0.4) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7);
+}
 
+.M-switch > *::after, .M-switch:empty::after {
+  align-self: center;
+  position: absolute;
+  content: '';
+  width: calc(var(--M-height) * 1.25);
+  height: calc(var(--M-height) * 1.25);
+  left: calc(((var(--M-height) * 1.25) - var(--M-height))/ -2 );
+  border-radius: var(--M-radius);
+  transition: 250ms ease-in-out;
+  background: linear-gradient(#f5f5f5 10%, #eeeeee);
+  box-shadow: 0 0.1em 0.15em -0.05em rgba(255, 255, 255, 0.9) inset, 0 0.2em 0.2em -0.12em rgba(0, 0, 0, 0.5);
+}
+
+.M-switch > *::before, .M-switch:empty::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75em;
+  transition: 250ms ease-in-out;
+  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
+  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), 0 0 0 0 rgba(68, 204, 102, 0.7) inset;
+}
+.M-switch > :checked + ::before,
+:checked + .M-switch:empty::before,
+.M-switch > .active::before,
+.M-switch.active:empty::before {
+  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), 3em 0 0 0 rgba(68, 204, 102, 0.7) inset;
+}
+.M-switch > :checked + ::after,
+:checked + .M-switch:empty::after,
+.M-switch > .active::after,
+.M-switch.active:empty::after {
+  left: calc((4em /2) + ( (1.5em * 1.25) /8));
+}
+.M-switch > input {
+  display: none;
+}
 
           /**************************************/
           /*             Complex                */
