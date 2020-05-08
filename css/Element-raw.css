@@ -179,43 +179,65 @@ input {
 /* -Searchbar- */
 
   /* Type 1 */
-.M-search {
-  width: 50%;
-  padding: 12px 24px;
-  font-size: 14px;
-  line-height: 18px;
-  border-radius: 50px;
-  border: 1px solid #575756;
-  outline: 0;
+  [contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
+  .M-search:not([contenteditable]):not(input):not(textarea) {
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    border-radius: 50px;
+    margin: 0em;
+    margin: 5px;
+    border: 1px solid #575756;
+    box-sizing: border-box;
+  }
+  [contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
+  .M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
+  .M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
+  .M-search:not([contenteditable]):not(input):not(textarea)> textarea {
+    
+    padding: 12px 24px;
+    font-size: 14px;
+    line-height: 18px;
+    outline: 0;
+    
+    /* inputifinator */
+    background-color: white;
+    text-indent: 0px;
+    display: inline-block;
+    text-align: start;
+    cursor: text;
+    font: 400 13.3333px Arial;
   
-  /* inputifinator */
-  background-color: white;
-  text-indent: 0px;
-  display: inline-block;
-  text-align: start;
-  cursor: text;
-  margin: 0em;
-  font: 400 13.3333px Arial;
+  }
+  
+  .M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
+  .M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
+  .M-search:not([contenteditable]):not(input):not(textarea)> textarea {
+    border: none;
+    border-radius: 50px;
+  }
+  .M-search:not([contenteditable]):not(input):not(textarea) {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr auto ;
+  }
 
-  margin: 5px;
-}
-
-.M-search:empty::before{
+.  [contenteditable].M-search:empty::before,
+input[type="text"].M-search:empty::before,
+textarea.M-search:empty::before,
+.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable]:empty::before,
+.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"]:empty::before,
+.M-search:not([contenteditable]):not(input):not(textarea)> textarea:empty::before {
   content: attr(placeholder);
   color: gray;
 }
 
-.search-container{
-  position: relative;
-}
-
-.search-i{
-  position: absolute;
-
-}
 
 /* Type 2 */
-.M-search.T-2 {
+[contenteditable].M-search.T-2, input[type="text"].M-search.T-2, textarea.M-search.T-2,
+.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable].T-2,
+.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"].T-2,
+.M-search:not([contenteditable]):not(input):not(textarea)> textarea.T-2 {
   outline: 0;
   border: 1px solid transparent;
   border-bottom: 1px solid #575756;
