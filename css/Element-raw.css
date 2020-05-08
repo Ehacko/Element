@@ -185,6 +185,13 @@ width: 200px;
 
 /* -Switch- */
 
+.M-switch {
+  visibility: hidden;
+}
+.M-switch::before{
+  content: "";
+}
+
 
           /**************************************/
           /*             Complex                */
