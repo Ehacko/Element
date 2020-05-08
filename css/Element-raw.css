@@ -179,7 +179,8 @@ input {
 
   /* Type 1 */
   .M-notif {
-    margin: auto;
+    float: left;
+    vertical-align: top;
   }
 
 /* -Searchbar- */
