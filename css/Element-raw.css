@@ -15,28 +15,36 @@ input {
 
   padding: 2px 6px;
   background: linear-gradient(
-    rgb(var(--M-R), var(--M-G), var(--M-B)),
-    rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9))
+    rgb(255, 255, 255),
+    /* rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9)) */
+    rgb(calc(255*0.9), calc(255*0.9), calc(255*0.9))
   );
-  border: solid 1px rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9));
+  /* border: solid 1px rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9)); */
+  border: solid 1px rgb(calc(255*0.9), calc(255*0.9), calc(255*0.9));
   border-radius: 2px;
   outline: none;
   justify-content: center;
   align-content: center;
   text-decoration: none;
-  color: rgb(var(--M-Color),var(--M-Color),var(--M-Color));
+  /* color: rgb(var(--M-Color),var(--M-Color),var(--M-Color)); */
+  color: black;
   font: 400 13.3333px Arial;
 }
+
 .M-btn:hover {
-  border-color: rgb(calc(var(--M-R)/2), calc(var(--M-G)/2), calc(var(--M-B)/2));
+  /* border-color: rgb(calc(var(--M-R)/2), calc(var(--M-G)/2), calc(var(--M-B)/2)); */
+  border-color: rgb(calc(255/2), calc(255/2), calc(255/2));
+
 }
 .M-btn:active {
   background: linear-gradient(
-    rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9)),
-    rgb(var(--M-R), var(--M-G), var(--M-B))
+    /* rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9)),
+    rgb(var(--M-R), var(--M-G), var(--M-B)) */
+    rgb(calc(255*0.9), calc(255*0.9), calc(255*0.9)),
+    rgb(255, 255, 255)
   );
-  border-color: rgb(calc(var(--M-R)*0.7), calc(var(--M-G)*0.7), calc(var(--M-B)*0.7));
-
+  /* border-color: rgb(calc(var(--M-R)*0.7), calc(var(--M-G)*0.7), calc(var(--M-B)*0.7)); */
+  border-color: rgb(calc(255*0.7), calc(255*0.7), calc(255*0.7));
 }
 
 /* -Card- */
@@ -105,7 +113,7 @@ input {
 }
 .M-list > *{
   display: list-item;
-}
+} 
 /* -ProgressBar- */
 
   /* Type 1 */
@@ -181,6 +189,9 @@ input {
 /* -Searchbar- */
 
   /* Type 1 */
+.M-search {
+width: 200px;
+}
 
 /* -Switch- */
 
