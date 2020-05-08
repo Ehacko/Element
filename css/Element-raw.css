@@ -222,7 +222,7 @@ input {
     grid-template-columns: 1fr auto ;
   }
 
-.  [contenteditable].M-search:empty::before,
+[contenteditable].M-search:empty::before,
 input[type="text"].M-search:empty::before,
 textarea.M-search:empty::before,
 .M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable]:empty::before,
