@@ -190,19 +190,43 @@
 
 [contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
 .M-search:not([contenteditable]):not(input):not(textarea) {
-  /* input outer style */
+  position: relative;
+  overflow: hidden;
+  width: 50%;
+  border-radius: 50px;
+  margin: 0em;
+  margin: 5px;
+  border: 1px solid #575756;
+  box-sizing: border-box;
 }
 [contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
 .M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
 .M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
 .M-search:not([contenteditable]):not(input):not(textarea)> textarea {
-  /* input style without outer style */
+  
+  padding: 12px 24px;
+  font-size: 14px;
+  line-height: 18px;
+  outline: 0;
+  
+  /* inputifinator */
+  background-color: white;
+  text-indent: 0px;
+  display: inline-block;
+  text-align: start;
+  cursor: text;
+  font: 400 13.3333px Arial;
+
 }
 
+.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
+.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
+.M-search:not([contenteditable]):not(input):not(textarea)> textarea {
+  border: none;
+  border-radius: 50px;
+}
 .M-search:not([contenteditable]):not(input):not(textarea) {
   display: grid;
-}
-.M-search:not([contenteditable]):not(input):not(textarea)> i {
-  grid-column: 1;
-  grid-row: 1;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto ;
 }
