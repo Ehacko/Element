@@ -156,12 +156,6 @@
   border-color: rgb(calc(var(--M-Red)*0.7), calc(var(--M-Green)*0.7), calc(var(--M-Blue)*0.7));
 
 }
-.M-list{
-
-}
-.M-bar{
-
-}
 .M-card{
   position: relative;
   margin: var(--M-Margin);
@@ -177,15 +171,6 @@
 .M-card.T-2>:nth-child(2){
   --M-paddingBottom: var(--M-paddingLeft);
   margin: var(--M-paddingTop) var(--M-paddingRight) var(--M-paddingBottom) var(--M-paddingLeft);
-}
-.M-Notif{
-
-}
-.M-switch{
-
-}
-.M-form {
-
 }
 
 

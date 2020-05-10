@@ -86,6 +86,10 @@ input[class*="M-"], [class*="M-"] > input {
 
   /* Type 1 */
 .M-btn{
+  --M-red: 255;
+  --M-green: 255;
+  --M-blue: 255;
+  --M-opacity: 1;
 
   padding: 2px 6px;
   background: linear-gradient(
@@ -117,23 +121,34 @@ input[class*="M-"], [class*="M-"] > input {
 
   /* Type-1 */
   .M-card {
+    --M-width: 150px;
+    --M-height: calc(var(--M-width) * 1.5);
     display: inline-grid;
     position: relative;
-    margin: var(--M-Margin);
+    margin: var(--M-margin);
     width: var(--M-width);
     height: var(--M-height);
+  }
+  .M-card:empty::before {
+    --M-red: var(--M-secondaryR);
+    --M-green: var(--M-secondaryG);
+    --M-blue: var(--M-secondaryB);
+  }
+  .M-card:empty::before, .M-card:empty::after {
+    content: "";
+    background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
   }
   .M-card:not([class*="T-"]) {
     grid-template-rows: 40% 60%;
   }
   /* Type-2 */
-  .M-card.T-2>:first-child {
+  .M-card.T-2>:first-child, .M-card.T-2:empty>::before {
     position: absolute;
     width: var(--M-width);
     height: var(--M-height);
     z-index: -1;
   } 
-  .M-card.T-2>:nth-child(2){
+  .M-card.T-2>:nth-child(2), .M-card.T-2:empty>::before {
     --M-paddingBottom: var(--M-paddingLeft);
     margin: var(--M-paddingTop) var(--M-paddingRight) var(--M-paddingBottom) var(--M-paddingLeft);
   }
