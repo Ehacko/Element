@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Element-raw</title>
+    <title>Element-refining</title>
     <link rel="stylesheet" href="css/Element-refining.css">
   </head>
   <body>
@@ -143,13 +143,13 @@
     </div>
 
     <div class="Mods">
-      <input type="checkbox" id="s3" />
+      <input type="checkbox" id="s3" class="M-switch" onclick="if(this.checked) this.parentElement.children[2].classList.add('active'); else this.parentElement.children[2].classList.remove('active')"/>
       <label class="M-switch" for="s3"></label>
+      <div class="M-switch" onclick="if(this.classList.contains('active')) this.classList.remove('active'), this.parentElement.children[0].checked = false; else this.classList.add('active'), this.parentElement.children[0].checked = true;"></div>
       <div class="M-switch">
         <input type="checkbox" id="p3" />
         <label for="p3"></label>
       </div>
-      <div class="M-switch"></div>
     </div>
     <div class="Mods">
     </div>

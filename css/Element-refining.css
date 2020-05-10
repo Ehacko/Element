@@ -306,11 +306,13 @@ textarea.M-search:empty::before,
   --M-width: 4em;
   --M-height: 1.5em;
   --M-radius: 2.5px;
+  --M-shader: .75;
 }
 .M-switch > *, .M-switch:empty {
               
   position: relative;
   display: inline-grid;
+  align-items: center;
   width: var(--M-width);
   height: var(--M-height);
   cursor: pointer;
@@ -318,20 +320,18 @@ textarea.M-search:empty::before,
   transition: 350ms;
   border: .75em solid #ddd;
   background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
-  box-shadow: 0 0.07em 0.1em -0.1em rgba(0, 0, 0, 0.4) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7);
 }
 
 .M-switch > *::after, .M-switch:empty::after {
-  align-self: center;
-  position: absolute;
+  position: relative;
   content: '';
-  width: calc(var(--M-height) * 1.25);
-  height: calc(var(--M-height) * 1.25);
-  left: calc(((var(--M-height) * 1.25) - var(--M-height))/ -2 );
+  width: calc(var(--M-height) * var(--M-shader));
+  height: calc(var(--M-height) * var(--M-shader));
+  left: calc(((var(--M-height) * var(--M-shader)) - var(--M-height))/ -2 );
   border-radius: var(--M-radius);
   transition: 250ms ease-in-out;
   background: linear-gradient(#f5f5f5 10%, #eeeeee);
-  box-shadow: 0 0.1em 0.15em -0.05em rgba(255, 255, 255, 0.9) inset, 0 0.2em 0.2em -0.12em rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.1em 0.15em -0.05em rgba(255, 255, 255, 0.9) inset, 0 0 0.5em -0.15em rgba(0, 0, 0, 0.5);
 }
 
 .M-switch > *::before, .M-switch:empty::before {
@@ -339,7 +339,7 @@ textarea.M-search:empty::before,
   content: '';
   width: 100%;
   height: 100%;
-  border-radius: 0.75em;
+  border-radius: var(--M-radius);
   transition: 250ms ease-in-out;
   background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), 0 0 0 0 rgba(68, 204, 102, 0.7) inset;
@@ -347,14 +347,18 @@ textarea.M-search:empty::before,
 .M-switch > :checked + ::before,
 :checked + .M-switch:empty::before,
 .M-switch > .active::before,
-.M-switch.active:empty::before {
-  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), 3em 0 0 0 rgba(68, 204, 102, 0.7) inset;
+.M-switch.active:empty::before ,
+.M-switch:checked:empty::before {
+  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
+  0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
+  var(--M-width) 0 0 0 rgba(68, 204, 102, 0.7) inset;
 }
 .M-switch > :checked + ::after,
 :checked + .M-switch:empty::after,
 .M-switch > .active::after,
-.M-switch.active:empty::after {
-  left: calc((4em /2) + ( (1.5em * 1.25) /8));
+.M-switch.active:empty::after,
+.M-switch:checked:empty::after {
+  left: calc( var(--M-width) - (( var(--M-height) * var(--M-shader) ) - (var(--M-height) * (( var(--M-shader) - 1)/2) )));
 }
 .M-switch > input {
   display: none;
