@@ -3,20 +3,20 @@
   
   /* Format parameter */
 
-    --M-TitleFont: serif;
-    --M-FontA: sans-serif;
-    --M-FontB: cursive;
+    --M-titleFont: serif;
+    --M-fontA: sans-serif;
+    --M-fontB: cursive;
 
   /* Layout parameter */
 
     --M-height: 100%;
     --M-width: 100%;
     --M-gap: initial;
-    --M-Columns: 1fr;
-    --M-Rows: 1fr;
-    --M-Align: initial;
-    --M-Justify: initial;
-    --M-Margin: initial;
+    --M-columns: 1fr;
+    --M-rows: 1fr;
+    --M-align: initial;
+    --M-justify: initial;
+    --M-margin: initial;
     --M-paddingLeft: initial;
     --M-paddingRight: var(--M-padding-left);
     --M-paddingTop: var(--M-paddingLeft);
@@ -35,65 +35,85 @@
   /* Style parameter */
 
     /* Red bits variables */
-    --M-PrimaryR: 255;
-    --M-SecondaryR: 255;
-    --M-Red: 255;
+    --M-primaryR: 255;
+    --M-secondaryR: var(--M-primaryR);
+    --M-red: 255;
     /* Green bits variables */
-    --M-PrimaryG: 255;
-    --M-SecondaryG: 255;
-    --M-Green: 255;
+    --M-primaryG: 255;
+    --M-secondaryG: var(--M-primaryG);
+    --M-green: 255;
     /* Blue bits variables */
-    --M-PrimaryB: 255;
-    --M-SecondaryB: 255;
-    --M-Blue: 255;
+    --M-primaryB: 255;
+    --M-secondaryB: var(--M-primaryB);
+    --M-blue: 255;
     /* Opacity variables */
-    --M-PrimaryA: 1;
-    --M-SecondaryA: 1;
-    --M-A: 1;
+    --M-primaryA: 1;
+    --M-secondaryA: var(--M-primaryA);
+    --M-opacity: 1;
     
+}
+
+
+          /**************************************/
+          /*              Globals               */
+          /**************************************/
+
+
+/* dependent variables */
+[class*="M-"], [class*="M-"]>*  {
+  /* constrast variable. if background-color is dark, --M-color equal 255 else --M-color equal 0 */
+  --M-bits: calc(((((var(--M-red) * 299) + (var(--M-green) * 587) + (var(--M-blue) * 114)) / 1000) - 128) * -1000);
+  --M-color: rgb(var(--M-bits),var(--M-bits),var(--M-bits));
+  
+  /* dependence of the variables "padding" on the variable "--M-padding-left"*/
+  --M-paddingRight: var(--M-paddingLeft);
+  --M-paddingTop: var(--M-paddingLeft);
+  --M-paddingBottom: var(--M-paddingTop);
 }
 input[class*="M-"], [class*="M-"] > input {
   border-style: double;
   border-width: 1px;
   border-radius: 2.5px;
 }
+
+
           /**************************************/
           /*              Simple                */
           /**************************************/
 
 
-/* -Button- */
+/* -Button(inprocess)- */
 
   /* Type 1 */
 .M-btn{
 
   padding: 2px 6px;
   background: linear-gradient(
-    rgb(var(--M-R), var(--M-G), var(--M-B)),
-    rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9))
+    rgb(var(--M-red), var(--M-green), var(--M-blue)),
+    rgb(calc(var(--M-red)*0.9), calc(var(--M-green)*0.9), calc(var(--M-blue)*0.9))
   );
-  border: solid 1px rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9));
+  border: solid 1px rgb(calc(var(--M-red)*0.9), calc(var(--M-green)*0.9), calc(var(--M-blue)*0.9));
   border-radius: 2px;
   outline: none;
   justify-content: center;
   align-content: center;
   text-decoration: none;
-  color: rgb(var(--M-Color),var(--M-Color),var(--M-Color));
+  color: var(--M-color);
   font: 400 13.3333px Arial;
 }
 .M-btn:hover {
-  border-color: rgb(calc(var(--M-R)/2), calc(var(--M-G)/2), calc(var(--M-B)/2));
+  border-color: rgb(calc(var(--M-red)/2), calc(var(--M-green)/2), calc(var(--M-blue)/2));
 }
 .M-btn:active {
   background: linear-gradient(
-    rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9)),
-    rgb(var(--M-R), var(--M-G), var(--M-B))
+    rgb(calc(var(--M-red)*0.9), calc(var(--M-green)*0.9), calc(var(--M-blue)*0.9)),
+    rgb(var(--M-red), var(--M-green), var(--M-blue))
   );
-  border-color: rgb(calc(var(--M-R)*0.7), calc(var(--M-G)*0.7), calc(var(--M-B)*0.7));
+  border-color: rgb(calc(var(--M-red)*0.7), calc(var(--M-green)*0.7), calc(var(--M-blue)*0.7));
 
 }
 
-/* -Card- */
+/* -Card(inprocess)- */
 
   /* Type-1 */
   .M-card {
@@ -117,7 +137,7 @@ input[class*="M-"], [class*="M-"] > input {
     --M-paddingBottom: var(--M-paddingLeft);
     margin: var(--M-paddingTop) var(--M-paddingRight) var(--M-paddingBottom) var(--M-paddingLeft);
   }
-/* -Form- */
+/* -Form(inprocess)- */
 
   /* Type 1 */
 .M-form {
@@ -147,7 +167,7 @@ input[class*="M-"], [class*="M-"] > input {
   justify-self: center;
 }
 
-/* -List- */
+/* -List(inprocess)- */
 
   /* Type 1 */
 .M-list{
@@ -160,10 +180,16 @@ input[class*="M-"], [class*="M-"] > input {
 .M-list > *{
   display: list-item;
 }
-/* -ProgressBar- */
+/* -ProgressBar(inprocess)- */
 
   /* Type 1 */
 .M-bar {
+  --M-secondaryR: 0;
+  --M-secondaryG: 0;
+  --M-secondaryB: 255;
+  --M-primaryR: 255;
+  --M-primaryG: 255;
+  --M-primaryB: 255;
   overflow: hidden;
   display: grid;
   width: 200px;
@@ -178,13 +204,16 @@ input[class*="M-"], [class*="M-"] > input {
   align-content: center;
   justify-content: center;
   content: "50%";
-  color: black;
+  color: var(--M-color);
   width: 200px;
   height: 100%;
 }
 .M-bar>:nth-child(1) {
+  --M-red: var(--M-secondaryR);
+  --M-green: var(--M-secondaryG);
+  --M-blue: var(--M-secondaryB);
   position: relative;
-  background-color: blue;
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
   overflow: hidden;
   width: 50%;
   height: 100%;
@@ -196,20 +225,30 @@ input[class*="M-"], [class*="M-"] > input {
   justify-content: center;
   position: absolute;
   content: "50%";
-  color: white;
+  color: var(--M-color);
   width: 200px;
   height: 100%;
 }
 
-/* -Pagination- */
+/* -Pagination(inprocess)- */
 
   /* Type 1 */
 .M-page {
+  --M-primaryR: 255;
+  --M-primaryG: 255;
+  --M-primaryB: 255;
+  --M-secondaryR: 0;
+  --M-secondaryG: 0;
+  --M-secondaryB: 255;
+  --M-red: var(--M-primaryR);
+  --M-green: var(--M-primaryG);
+  --M-blue: var(--M-primaryB);
   counter-reset: pageN;
   display: grid;
   grid-template-columns: repeat(auto-fit, 50px);
   grid-auto-rows: 50px;
   justify-content: center;
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
 }
 .M-page>[type="radio"] {
   display: none;
@@ -218,18 +257,23 @@ input[class*="M-"], [class*="M-"] > input {
   display: grid;
   align-content: center;
   justify-content: center;
+  color: var(--M-color);
 }
   /* Type 2 */
 .M-page.T-2 > :not(input)::before {
+  --M-type: decimal;
   counter-increment: pageN;
-  content: counter(pageN)
+  content: counter(pageN, var(--M-type));
 }
 .M-page.T-2 > :checked + label, .M-page.T-2 > :not(input).actives {
-  background-color: blue;
-  color: white;
+  --M-red: var(--M-secondaryR);
+  --M-green: var(--M-secondaryG);
+  --M-blue: var(--M-secondaryB);
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
+  color: var(--M-color);
 }
 
-/* -Searchbar- */
+/* -Searchbar(inprocess)- */
 .M-search{
   --M-width: 50%
 }
@@ -284,7 +328,7 @@ textarea.M-search:empty::before,
 .M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"]:empty::before,
 .M-search:not([contenteditable]):not(input):not(textarea)> textarea:empty::before {
   content: attr(placeholder);
-  color: #575756;
+  color: var(--M-color);
 }
 .M-search:not([contenteditable]):not(input):not(textarea)> i {
   height: fit-content;
@@ -301,27 +345,33 @@ textarea.M-search:empty::before,
   border-radius: 0;
 }
   
-/* -Switch- */
+/* -Switch(inprocess)- */
 .M-switch {
   --M-width: 4em;
   --M-height: 1.5em;
   --M-radius: 2.5px;
   --M-shader: .75;
+  --M-border: none;
+  --M-margin: 5px
 }
 .M-switch > *, .M-switch:empty {
-              
   position: relative;
   display: inline-grid;
+  grid-auto-rows: 100%;
   align-items: center;
   width: var(--M-width);
   height: var(--M-height);
   cursor: pointer;
   border-radius: var(--M-radius);
   transition: 350ms;
-  border: .75em solid #ddd;
-  background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
+  border: var(--M-border);
+  padding: 0;
+  margin: calc( (((var(--M-height) * var(--M-shader)) - var(--M-height)) / 2 ) + var(--M-margin) ) var(--M-margin);
 }
-
+input[type="checkbox"].M-switch:empty {
+  height: calc(var(--M-height) * 1.2);
+  width: calc(var(--M-width) * 1.2);
+}
 .M-switch > *::after, .M-switch:empty::after {
   position: relative;
   content: '';
@@ -333,32 +383,55 @@ textarea.M-search:empty::before,
   background: linear-gradient(#f5f5f5 10%, #eeeeee);
   box-shadow: 0 0.1em 0.15em -0.05em rgba(255, 255, 255, 0.9) inset, 0 0 0.5em -0.15em rgba(0, 0, 0, 0.5);
 }
-
+input[type="checkbox"].M-switch:empty::after {
+  width: calc( (var(--M-height) * 1.2) * var(--M-shader));
+  height: calc( (var(--M-height) * 1.2) * var(--M-shader));
+  left: calc((( (var(--M-height) * 1.2) * var(--M-shader)) - (var(--M-height) * 1.2))/ -2 );
+}
 .M-switch > *::before, .M-switch:empty::before {
   position: absolute;
+  top: 0;
+  right: 0;
   content: '';
   width: 100%;
   height: 100%;
   border-radius: var(--M-radius);
   transition: 250ms ease-in-out;
   background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
-  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), 0 0 0 0 rgba(68, 204, 102, 0.7) inset;
+  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
+  0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
+  0 0 0 0 rgba(68, 204, 102, 0.7) inset,
+  calc(var(--M-width) * -1) 0 0 0 rgba(204, 68, 68, 0.7) inset;
+}
+input[type="checkbox"].M-switch:empty::before {
+  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
+  0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
+  0 0 0 0 rgba(68, 204, 102, 0.7) inset,
+  calc((var(--M-width) * 1.2) * -1) 0 0 0 rgba(204, 68, 68, 0.7) inset;
 }
 .M-switch > :checked + ::before,
 :checked + .M-switch:empty::before,
 .M-switch > .active::before,
-.M-switch.active:empty::before ,
-.M-switch:checked:empty::before {
+.M-switch.active:empty::before {
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
   0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
-  var(--M-width) 0 0 0 rgba(68, 204, 102, 0.7) inset;
+  var(--M-width) 0 0 0 rgba(68, 204, 102, 0.7) inset,
+  0 0 0 0 rgba(204, 68, 68, 0.7) inset;
+}
+input[type="checkbox"].M-switch:checked:empty::before {
+  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
+  0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
+  calc(var(--M-width) * 1.2) 0 0 0 rgba(68, 204, 102, 0.7) inset,
+  0 0 0 0 rgba(204, 68, 68, 0.7) inset;
 }
 .M-switch > :checked + ::after,
 :checked + .M-switch:empty::after,
 .M-switch > .active::after,
-.M-switch.active:empty::after,
-.M-switch:checked:empty::after {
+.M-switch.active:empty::after {
   left: calc( var(--M-width) - (( var(--M-height) * var(--M-shader) ) - (var(--M-height) * (( var(--M-shader) - 1)/2) )));
+}
+input[type="checkbox"].M-switch:checked:empty::after{
+  left: calc( (var(--M-width) * 1.2) - (( (var(--M-height) * 1.2) * var(--M-shader) ) - ((var(--M-height) *1.2) * (( var(--M-shader) - 1)/2) )));
 }
 .M-switch > input {
   display: none;
@@ -453,23 +526,23 @@ textarea.M-search:empty::before,
 }
 .M-modal {
   --M-Margin: 2.5em;
-  --M-A: 0.5;
+  --M-opacity: 0.5;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   margin: var(--M-Margin);
-  background-color: rgb(var(--M-R), var(--M-G), var(--M-B));
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
 }
   /* Type-2 */
 .M-modal.full {
   margin: 0;
   padding: var(--M-Margin);
-  background-color: rgba(calc(var(--M-R)*0.1), calc(var(--M-G)*0.1), calc(var(--M-B)*0.1), var(--M-A));
+  background-color: rgba(calc(var(--M-red)*0.1), calc(var(--M-green)*0.1), calc(var(--M-blue)*0.1), var(--M-opacity));
 }
 .M-modal.full>*, .M-modal.full:empty::before {
-  background-color: rgb(var(--M-R), var(--M-G), var(--M-B));
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
 }
 .M-modal.full:empty::before {
   content: "";
