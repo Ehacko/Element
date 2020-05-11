@@ -14,7 +14,7 @@ List of HTMLmodules:
 
     - Mixte(Can be put inside or outside modules)
 
-      1. Button(.M-btn)           ok
+      1. Button(.M-btn)           
       2. Card(.M-card)            ok
       3. Form(.M-form)            ok
       4. List(.M-list)            ok

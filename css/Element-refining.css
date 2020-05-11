@@ -31,6 +31,9 @@
     --M-shader: 0.5;
     --M-radius: 0;
     --M-border: none;
+    --M-borderWidth: none;
+    --M-borderStyle: none;
+    --M-borderColor: none;
     
   /* Style parameter */
 
@@ -61,6 +64,7 @@
 
 /* dependent variables */
 [class*="M-"], [class*="M-"]>*  {
+  all: unset;
   /* constrast variable. if background-color is dark, --M-color equal 255 else --M-color equal 0 */
   --M-bits: calc(((((var(--M-red) * 299) + (var(--M-green) * 587) + (var(--M-blue) * 114)) / 1000) - 128) * -1000);
   --M-color: rgb(var(--M-bits),var(--M-bits),var(--M-bits));
@@ -69,6 +73,9 @@
   --M-paddingRight: var(--M-paddingLeft);
   --M-paddingTop: var(--M-paddingLeft);
   --M-paddingBottom: var(--M-paddingTop);
+
+  /* dependence of the variables "--M-barder" on the other variable "--M-border"  */
+  --M-border: var(--M-borderWidth) var(--M-borderStyle) var(--M-borderColor);
 }
 input[class*="M-"], [class*="M-"] > input {
   border-style: double;
@@ -258,12 +265,13 @@ input[class*="M-"], [class*="M-"] > input {
   --M-red: var(--M-primaryR);
   --M-green: var(--M-primaryG);
   --M-blue: var(--M-primaryB);
+  --M-type: decimal;
+
   counter-reset: pageN;
   display: grid;
   grid-template-columns: repeat(auto-fit, 50px);
   grid-auto-rows: 50px;
   justify-content: center;
-  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
 }
 .M-page>[type="radio"] {
   display: none;
@@ -274,16 +282,23 @@ input[class*="M-"], [class*="M-"] > input {
   justify-content: center;
   color: var(--M-color);
 }
-  /* Type 2 */
-.M-page.T-2 > :not(input)::before {
-  --M-type: decimal;
+.M-page > :not(input)::before {
   counter-increment: pageN;
   content: counter(pageN, var(--M-type));
+  color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
 }
-.M-page.T-2 > :checked + label, .M-page.T-2 > :not(input).actives {
+.M-page > :checked + label, .M-page > :not(input).active {
   --M-red: var(--M-secondaryR);
   --M-green: var(--M-secondaryG);
   --M-blue: var(--M-secondaryB);
+  color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
+}
+  /* Type 2 */
+.M-page.T-2 > :not(input)::before {
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
+  color: var(--M-color);
+}
+.M-page.T-2 > :checked + label, .M-page.T-2 > :not(input).active {
   background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
   color: var(--M-color);
 }
@@ -364,10 +379,12 @@ textarea.M-search:empty::before,
 .M-switch {
   --M-width: 4em;
   --M-height: 1.5em;
-  --M-radius: 2.5px;
+  --M-radius: 25px;
   --M-shader: .75;
-  --M-border: none;
-  --M-margin: 5px
+  --M-margin: 5px;
+  --M-borderWidth: 5px;
+  --M-borderStyle: solid;
+  --M-borderColor: grey;
 }
 .M-switch > *, .M-switch:empty {
   position: relative;
@@ -377,15 +394,14 @@ textarea.M-search:empty::before,
   width: var(--M-width);
   height: var(--M-height);
   cursor: pointer;
-  border-radius: var(--M-radius);
   transition: 350ms;
-  border: var(--M-border);
   padding: 0;
   margin: calc( (((var(--M-height) * var(--M-shader)) - var(--M-height)) / 2 ) + var(--M-margin) ) var(--M-margin);
-}
-input[type="checkbox"].M-switch:empty {
-  height: calc(var(--M-height) * 1.2);
-  width: calc(var(--M-width) * 1.2);
+  box-sizing: content-box;
+  font: initial;
+  outline: none;
+  top: var(--M-borderWidth);
+  border: 0;
 }
 .M-switch > *::after, .M-switch:empty::after {
   position: relative;
@@ -393,60 +409,45 @@ input[type="checkbox"].M-switch:empty {
   width: calc(var(--M-height) * var(--M-shader));
   height: calc(var(--M-height) * var(--M-shader));
   left: calc(((var(--M-height) * var(--M-shader)) - var(--M-height))/ -2 );
-  border-radius: var(--M-radius);
+  border-radius: calc(var(--M-radius) - (var(--M-borderWidth) * 1.25));
   transition: 250ms ease-in-out;
   background: linear-gradient(#f5f5f5 10%, #eeeeee);
   box-shadow: 0 0.1em 0.15em -0.05em rgba(255, 255, 255, 0.9) inset, 0 0 0.5em -0.15em rgba(0, 0, 0, 0.5);
-}
-input[type="checkbox"].M-switch:empty::after {
-  width: calc( (var(--M-height) * 1.2) * var(--M-shader));
-  height: calc( (var(--M-height) * 1.2) * var(--M-shader));
-  left: calc((( (var(--M-height) * 1.2) * var(--M-shader)) - (var(--M-height) * 1.2))/ -2 );
+  grid-row: 1;
+  grid-column: 1;
 }
 .M-switch > *::before, .M-switch:empty::before {
-  position: absolute;
-  top: 0;
-  right: 0;
   content: '';
   width: 100%;
   height: 100%;
-  border-radius: var(--M-radius);
   transition: 250ms ease-in-out;
   background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
   0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
   0 0 0 0 rgba(68, 204, 102, 0.7) inset,
   calc(var(--M-width) * -1) 0 0 0 rgba(204, 68, 68, 0.7) inset;
-}
-input[type="checkbox"].M-switch:empty::before {
-  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
-  0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
-  0 0 0 0 rgba(68, 204, 102, 0.7) inset,
-  calc((var(--M-width) * 1.2) * -1) 0 0 0 rgba(204, 68, 68, 0.7) inset;
+  grid-row: 1;
+  grid-column: 1;
+  border: var(--M-border);
+  border-radius: var(--M-radius);
+  justify-self: center;
 }
 .M-switch > :checked + ::before,
 :checked + .M-switch:empty::before,
 .M-switch > .active::before,
-.M-switch.active:empty::before {
+.M-switch.active:empty::before,
+.M-switch:checked:empty::before {
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
   0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
   var(--M-width) 0 0 0 rgba(68, 204, 102, 0.7) inset,
   0 0 0 0 rgba(204, 68, 68, 0.7) inset;
 }
-input[type="checkbox"].M-switch:checked:empty::before {
-  box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
-  0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
-  calc(var(--M-width) * 1.2) 0 0 0 rgba(68, 204, 102, 0.7) inset,
-  0 0 0 0 rgba(204, 68, 68, 0.7) inset;
-}
 .M-switch > :checked + ::after,
 :checked + .M-switch:empty::after,
 .M-switch > .active::after,
-.M-switch.active:empty::after {
+.M-switch.active:empty::after,
+.M-switch:checked:empty::after {
   left: calc( var(--M-width) - (( var(--M-height) * var(--M-shader) ) - (var(--M-height) * (( var(--M-shader) - 1)/2) )));
-}
-input[type="checkbox"].M-switch:checked:empty::after{
-  left: calc( (var(--M-width) * 1.2) - (( (var(--M-height) * 1.2) * var(--M-shader) ) - ((var(--M-height) *1.2) * (( var(--M-shader) - 1)/2) )));
 }
 .M-switch > input {
   display: none;

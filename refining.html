@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Element-refining</title>
     <link rel="stylesheet" href="css/Element-refining.css">
+    <style>
+      .MP1{
+        --M-primaryR: 0;
+        --M-primaryG: 0;
+        --M-primaryB: 0;
+      }
+    </style>
+    <script defer>
+      function select(a, b) {
+        for(i=0; i < b.length; i++) {
+          if( a === b[i] && !a.classList.contains('active')) a.classList.add('active');
+          else if(a != b[i]) b[i].classList.remove('active'); 
+        }
+      }
+    </script>
   </head>
   <body>
 
@@ -29,14 +44,15 @@
 
     <div id="Card" class="Mods">
       <h2>CARDS</h2>
-
+      
       <!-- type 1 -->
       <div>
         <h3>Type 1: </h3>
-
+      
         <span class="M-card"></span>
         <div class="M card"></div>
-
+      </div>
+        
         <!-- type 2 -->
         <div>
           <h3>Type 2: </h3>
@@ -170,7 +186,7 @@
       <!-- Type 1 -->
       <div>
         <h3>Type 1: </h3>
-        <div class="M-page T-2">
+        <div class="M-page MP1">
           <input type="radio" name="R1" id="R1-1" checked>
           <label for="R1-1"></label>
           <input type="radio" name="R1" id="R1-2">
@@ -188,6 +204,53 @@
           <input type="radio" name="R1" id="R1-8">
           <label for="R1-8"></label>
         </div>
+        <p class="M-page MP1">
+          <span class="active" onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+        </p>
+      </div>
+      
+      <!-- Type 2 -->
+      <div>
+        <h3>Type 2: </h3>
+        <div class="M-page T-2 MP2">
+          <input type="radio" name="R2" id="R2-1" checked>
+          <label for="R2-1"></label>
+          <input type="radio" name="R2" id="R2-2">
+          <label for="R2-2"></label>
+          <input type="radio" name="R2" id="R2-3">
+          <label for="R2-3"></label>
+          <input type="radio" name="R2" id="R2-4">
+          <label for="R2-4"></label>
+          <input type="radio" name="R2" id="R2-5">
+          <label for="R2-5"></label>
+          <input type="radio" name="R2" id="R2-6">
+          <label for="R2-6"></label>
+          <input type="radio" name="R2" id="R2-7">
+          <label for="R2-7"></label>
+          <input type="radio" name="R2" id="R2-8">
+          <label for="R2-8"></label>
+        </div>
+        <p class="M-page T-2 MP2">
+          <span class="active" onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+          <span onclick="select(this, this.parentElement.children)"></span>
+        </p>
       </div>
     </div>
 
@@ -228,15 +291,19 @@
       <!-- Type 1 -->
       <div>
         <h3>Type 1: </h3>
-        <input type="checkbox" />
-        <button class="M-switch" onclick="if(this.classList.contains('active')) this.classList.remove('active'), this.parentElement.children[0].checked = false; else this.classList.add('active'), this.parentElement.children[0].checked = true;"></button>
-        <input type="checkbox" id="s3" class="M-switch" onclick="if(this.checked) this.parentElement.children[4].classList.add('active'); else this.parentElement.children[4].classList.remove('active')"/>
+        <h6 class="M-switch"></h6>
+        <input type="text" class="M-switch" onclick="if(this.classList.contains('active')) this.classList.remove('active'); else this.classList.add('active');"/>
+        <p class="M-switch" onclick="if(this.classList.contains('active')) this.classList.remove('active'); else this.classList.add('active');"></p>
+        <input type="checkbox" id="s3" class="M-switch"/>
         <label class="M-switch" for="s3"></label>
-        <div class="M-switch" onclick="if(this.classList.contains('active')) this.classList.remove('active'), this.parentElement.children[2].checked = false; else this.classList.add('active'), this.parentElement.children[2].checked = true;"></div>
+        <span class="M-switch" onclick="if(this.classList.contains('active')) this.classList.remove('active'); else this.classList.add('active');"></span>
         <div class="M-switch">
           <input type="checkbox" id="p3" />
           <label for="p3"></label>
         </div>
+        <img src="" alt="" class="M-switch">
+        <textarea name="" id="" cols="30" rows="10" class="M-switch"></textarea>
+        <a href="" class="M-switch"></a>
       </div>
     </div>
     
