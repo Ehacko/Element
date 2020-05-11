@@ -14,14 +14,14 @@ List of HTMLmodules:
 
     - Mixte(Can be put inside or outside modules)
 
-      1. Button(.M-btn)
-      2. Card(.M-card)
-      3. Form(.M-form)
-      4. List(.M-list)
-      5. ProgressBar(.M-bar)
-      6. Pagination(.M-page)
-      7. Searchbar(.M-search)
-      8. Switch(.M-switch)
+      1. Button(.M-btn)           ok
+      2. Card(.M-card)            ok
+      3. Form(.M-form)            ok
+      4. List(.M-list)            ok
+      5. ProgressBar(.M-bar)      ok
+      6. Pagination(.M-page)      ok
+      7. Searchbar(.M-search)     ok
+      8. Switch(.M-switch)        ok
 
     - Container(Cannot be put inside modules)
 
@@ -30,19 +30,19 @@ List of HTMLmodules:
 
     - Contained(Cannot be put outside modules)
 
-      1. Breadcrumb(.M-bdb)
-      2. Slider(.M-slider)
-      3. Slide(.M-slide)
+      1. Breadcrumb(.M-bdb)       ?
+      2. Slider(.M-slider)        ?
+      3. Slide(.M-slide)          ?
 
     - Mixte(Can be put inside or outside modules)
 
-      1. Box(.M-box)
-      2. Menu(.M-menu)
-      3. Navbar(.M-nav)
-      4. Grid(.M-grid)
+      1. Box(.M-box)              ?
+      2. Menu(.M-menu)            ok
+      3. Navbar(.M-nav)           ?
+      4. Grid(.M-grid)            ok
 
     - Container(Cannot be put inside modules)
-      1. Modal(.M-modal)
+      1. Modal(.M-modal)          ok
 
 
 

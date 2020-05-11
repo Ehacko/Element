@@ -3,6 +3,7 @@ input {
   border-width: 1px;
   border-radius: 2.5px;
 }
+
           /**************************************/
           /*              Simple                */
           /**************************************/
@@ -12,12 +13,9 @@ input {
 
   /* Type 1 */
 .M-btn{
-
   padding: 2px 6px;
-  background: linear-gradient(
-    rgb(255, 255, 255),
-    rgb(calc(255*0.9), calc(255*0.9), calc(255*0.9))
-  );
+  background: linear-gradient(rgb(255, 255, 255),
+    rgb(calc(255*0.9), calc(255*0.9), calc(255*0.9)));
   border: solid 1px rgb(calc(255*0.9), calc(255*0.9), calc(255*0.9));
   border-radius: 2px;
   outline: none;
@@ -31,39 +29,41 @@ input {
 .M-btn:hover {
   border-color: rgb(calc(255/2), calc(255/2), calc(255/2));
 }
-.M-btn:active {
-  background: linear-gradient(
-    rgb(calc(255*0.9), calc(255*0.9), calc(255*0.9)),
-    rgb(255, 255, 255)
-  );
-  border-color: rgb(calc(255*0.7), calc(255*0.7), calc(255*0.7));
 
+.M-btn:active {
+  background: linear-gradient(rgb(calc(255*0.9), calc(255*0.9), calc(255*0.9)),
+  rgb(255, 255, 255));
+  border-color: rgb(calc(255*0.7), calc(255*0.7), calc(255*0.7));
 }
 
 /* -Card- */
 
   /* Type-1 */
-  .M-card {
-    display: inline-grid;
-    position: relative;
-    margin: var(--M-Margin);
-    width: var(--M-width);
-    height: var(--M-height);
-  }
-  .M-card:not([class*="T-"]) {
-    grid-template-rows: 40% 60%;
-  }
+.M-card {
+  display: inline-grid;
+  position: relative;
+  margin: var(--M-Margin);
+  width: var(--M-width);
+  height: var(--M-height);
+}
+
+.M-card:not([class*="T-"]) {
+  grid-template-rows: 40% 60%;
+}
+
   /* Type-2 */
-  .M-card.T-2>:first-child {
-    position: absolute;
-    width: var(--M-width);
-    height: var(--M-height);
-    z-index: -1;
-  } 
-  .M-card.T-2>:nth-child(2){
-    --M-paddingBottom: var(--M-paddingLeft);
-    margin: var(--M-paddingTop) var(--M-paddingRight) var(--M-paddingBottom) var(--M-paddingLeft);
-  }
+.M-card.T-2>:first-child {
+  position: absolute;
+  width: var(--M-width);
+  height: var(--M-height);
+  z-index: -1;
+}
+
+.M-card.T-2>:nth-child(2){
+  --M-paddingBottom: var(--M-paddingLeft);
+  margin: var(--M-paddingTop) var(--M-paddingRight) var(--M-paddingBottom) var(--M-paddingLeft);
+}
+
 /* -Form- */
 
   /* Type 1 */
@@ -77,18 +77,22 @@ input {
   padding: .5em;
   justify-content: center;
 }
+
 .M-form > label:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+
 .M-form:not([class*="T-"]) > input {
   grid-column: 2;
 }
+
 .M-form:not([class*="T-"]) > label {
   align-self: center;
   justify-self: right;
   grid-column: 1;
 }
+
   /* Type 2 */
 .M-form.T-2 > label {
   justify-self: center;
@@ -101,12 +105,15 @@ input {
   display: grid;
   padding-left: 25px;
 }
+
 :not(ol):not(ul).M-list {
   list-style-type: " - ";
 }
+
 .M-list > *{
   display: list-item;
 } 
+
 /* -ProgressBar- */
 
   /* Type 1 */
@@ -119,6 +126,7 @@ input {
   border: 1px double;
   border-radius: 2.5px;
 }
+
 .M-bar::before {
   position: absolute;
   display: inline-grid;
@@ -129,6 +137,7 @@ input {
   width: 200px;
   height: 100%;
 }
+
 .M-bar>:nth-child(1) {
   position: relative;
   background-color: blue;
@@ -137,6 +146,7 @@ input {
   height: 100%;
   border-radius: 2.5px;
 }
+
 .M-bar>:nth-child(1)::before {
   display: inline-grid;
   align-content: center;
@@ -158,19 +168,23 @@ input {
   grid-auto-rows: 50px;
   justify-content: center;
 }
+
 .M-page>[type="radio"] {
   display: none;
 }
+
 .M-page > :not(input) {
   display: grid;
   align-content: center;
   justify-content: center;
 }
+
   /* Type 2 */
 .M-page.T-2 > :not(input)::before {
   counter-increment: pageN;
   content: counter(pageN)
 }
+
 .M-page.T-2 > :checked + label, .M-page.T-2 > :not(input).actives {
   background-color: blue;
   color: white;
@@ -190,11 +204,11 @@ input {
   border: 1px double #575756;
   box-sizing: border-box;
 }
+
 [contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
 .M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
 .M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
 .M-search:not([contenteditable]):not(input):not(textarea)> textarea {
-  
   padding: 12px 24px;
   font-size: 14px;
   line-height: 18px;
@@ -207,7 +221,6 @@ input {
   text-align: start;
   cursor: text;
   font: 400 13.3333px Arial;
-
 }
 
 .M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
@@ -216,6 +229,7 @@ input {
   border: none;
   border-radius: 50px;
 }
+
 .M-search:not([contenteditable]):not(input):not(textarea) {
   display: grid;
   grid-auto-flow: column;
@@ -231,6 +245,7 @@ textarea.M-search:empty::before,
   content: attr(placeholder);
   color: #575756;
 }
+
 .M-search:not([contenteditable]):not(input):not(textarea)> i {
   height: fit-content;
   width: fit-content;
@@ -239,7 +254,7 @@ textarea.M-search:empty::before,
 }
 
 
-/* Type 2 */
+  /* Type 2 */
 [contenteditable].M-search.T-2, input[type="text"].M-search.T-2, textarea.M-search.T-2,
 .M-search:not([contenteditable]):not(input):not(textarea).T-2 {
   border-top-color: transparent;
@@ -251,7 +266,6 @@ textarea.M-search:empty::before,
 /* -Switch- */
 
 .M-switch > *, .M-switch:empty {
-              
   position: relative;
   display: inline-grid;
   width: 4em;
@@ -287,18 +301,21 @@ textarea.M-search:empty::before,
   background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), 0 0 0 0 rgba(68, 204, 102, 0.7) inset;
 }
+
 .M-switch > :checked + ::before,
 :checked + .M-switch:empty::before,
 .M-switch > .active::before,
 .M-switch.active:empty::before {
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset, 0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7), 3em 0 0 0 rgba(68, 204, 102, 0.7) inset;
 }
+
 .M-switch > :checked + ::after,
 :checked + .M-switch:empty::after,
 .M-switch > .active::after,
 .M-switch.active:empty::after {
   left: calc((4em /2) + ( (1.5em * 1.25) /8));
 }
+
 .M-switch > input {
   display: none;
 }
@@ -334,28 +351,33 @@ textarea.M-search:empty::before,
 /* -Menu- */
 
   /* Type 1 */
-  .M-menu {
-    display: inline-grid;
-    grid-template-rows: 100%;
-    width: 100%;
-    height: 4em;
-  }
-  .M-menu>:first-child {
-    display: inline-grid;
-    align-content: center;
-    justify-content: center;
-  }
-  .M-menu>:last-child {
-    display: inline-grid;
-    grid-auto-rows: 4em;
-    transform: scale(1,0);
-    transform-origin: top;
-  }
-  .M-menu:hover>:last-child {
-    transform: scale(1);
-  }
+.M-menu {
+  display: inline-grid;
+  grid-template-rows: 100%;
+  width: 100%;
+  height: 4em;
+}
+
+.M-menu>:first-child {
+  display: inline-grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.M-menu>:last-child {
+  display: inline-grid;
+  grid-auto-rows: 4em;
+  transform: scale(1,0);
+  transform-origin: top;
+}
+
+.M-menu:hover>:last-child {
+  transform: scale(1);
+}
 
 /* -Nav- */
+
+
 
 /* -Grid- */
 
@@ -367,6 +389,7 @@ textarea.M-search:empty::before,
   grid-auto-rows: 1fr;
   width: var(--M-width);
 }
+
 .M-grid:not(:empty):before {
   content: '';
   width: 0;
@@ -374,6 +397,7 @@ textarea.M-search:empty::before,
   grid-row: 1 / 1;
   grid-column: 1 / 1;
 }
+
 .M-grid>*:first-child {
   grid-row: 1 / 1;
   grid-column: 1 / 1
@@ -391,6 +415,7 @@ textarea.M-search:empty::before,
   grid-template-columns: var(--M-Columns);
   grid-auto-rows: var(--M-rows);
 }
+
 .M-modal {
   --M-Margin: 2.5em;
   --M-A: 0.5;
@@ -402,15 +427,18 @@ textarea.M-search:empty::before,
   margin: var(--M-Margin);
   background-color: rgb(255, 255, 255);
 }
+
   /* Type-2 */
 .M-modal.full {
   margin: 0;
   padding: var(--M-Margin);
   background-color: rgba(calc(255*0.1), calc(255*0.1), calc(255*0.1), var(--M-A));
 }
+
 .M-modal.full>*, .M-modal.full:empty::before {
   background-color: rgb(255, 255, 255);
 }
+
 .M-modal.full:empty::before {
   content: "";
 }
