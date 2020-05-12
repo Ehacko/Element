@@ -1,3 +1,8 @@
+webkit
+:is(p,div) {
+  background-color: rebeccapurple;
+  color: green;
+}
 /* Variable to configure elements's parameter */
 :root {
   
@@ -277,15 +282,25 @@ input[class*="M-"], [class*="M-"] > input {
   display: none;
 }
 .M-page > :not(input) {
-  display: grid;
+  display: inline-grid;
   align-content: center;
   justify-content: center;
   color: var(--M-color);
+  cursor: pointer;
+}
+.M-page:not([class*='T-']) > :not(input) {
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
+  justify-self: center;
 }
 .M-page > :not(input)::before {
   counter-increment: pageN;
   content: counter(pageN, var(--M-type));
   color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
+}
+.M-page > :not(input):hover::before {
+  text-decoration: underline;
 }
 .M-page > :checked + label, .M-page > :not(input).active {
   --M-red: var(--M-secondaryR);
@@ -294,6 +309,10 @@ input[class*="M-"], [class*="M-"] > input {
   color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
 }
   /* Type 2 */
+  .M-page.T-2 > :not(input) {
+    align-content: center;
+    justify-content: center;
+  }
 .M-page.T-2 > :not(input)::before {
   background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
   color: var(--M-color);
@@ -308,8 +327,8 @@ input[class*="M-"], [class*="M-"] > input {
   --M-width: 50%
 }
   /* Type 1 */
-[contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
-.M-search:not([contenteditable]):not(input):not(textarea) {
+[contenteditable="true"].M-search, input[type="text"].M-search, textarea.M-search,
+.M-search:not([contenteditable="true"]):not(input):not(textarea) {
   position: relative;
   overflow: hidden;
   width: 50%;
@@ -319,10 +338,10 @@ input[class*="M-"], [class*="M-"] > input {
   border: 1px double #575756;
   box-sizing: border-box;
 }
-[contenteditable].M-search, input[type="text"].M-search, textarea.M-search,
-.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
-.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
-.M-search:not([contenteditable]):not(input):not(textarea)> textarea {
+[contenteditable="true"].M-search, input[type="text"].M-search, textarea.M-search,
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> [contenteditable="true"],
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> input[type="text"],
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> textarea {
   
   padding: 12px 24px;
   font-size: 14px;
@@ -336,39 +355,39 @@ input[class*="M-"], [class*="M-"] > input {
   text-align: start;
   cursor: text;
   font: 400 13.3333px Arial;
-
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
 }
 
-.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
-.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
-.M-search:not([contenteditable]):not(input):not(textarea)> textarea {
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> [contenteditable="true"],
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> input[type="text"],
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> textarea {
   border: none;
   border-radius: 50px;
 }
-.M-search:not([contenteditable]):not(input):not(textarea) {
+.M-search:not([contenteditable="true"]):not(input):not(textarea) {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr auto ;
 }
 
-[contenteditable].M-search:empty::before,
-input[type="text"].M-search:empty::before,
+[contenteditable="true"].M-search:empty::before,
 textarea.M-search:empty::before,
-.M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable]:empty::before,
-.M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"]:empty::before,
-.M-search:not([contenteditable]):not(input):not(textarea)> textarea:empty::before {
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> [contenteditable="true"]:empty::before,
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> textarea:empty::before {
   content: attr(placeholder);
   color: var(--M-color);
+  opacity: 0.7;
 }
-.M-search:not([contenteditable]):not(input):not(textarea)> i {
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> i {
   height: fit-content;
   width: fit-content;
   align-self: center;
   margin: 0 2.5px;
 } 
   /* Type 2 */
-[contenteditable].M-search.T-2, input[type="text"].M-search.T-2, textarea.M-search.T-2,
-.M-search:not([contenteditable]):not(input):not(textarea).T-2 {
+[contenteditable="true"].M-search.T-2, input[type="text"].M-search.T-2, textarea.M-search.T-2,
+.M-search:not([contenteditable="true"]):not(input):not(textarea).T-2 {
   border-top-color: transparent;
   border-left-color: transparent;
   border-right-color: transparent;
