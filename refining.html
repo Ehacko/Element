@@ -178,13 +178,41 @@
       <!-- Type 1 -->
       <div>
         <h3>Type 1: </h3>
-        <div class="M-bar" >
+        <div class="M-bar">
           <div></div>
         </div>
-        <span class="M-bar" >
+        <div class="M-bar" indeterminate>
+          <div></div>
+        </div>
+        <span class="M-bar">
           <span></span>
         </span>
+        <span class="M-bar" indeterminate>
+          <span></span>
+        </span>
+        <progress class="M-bar" value="50" max="100"></progress>
+        <progress class="M-bar"></progress>
       </div>
+    
+      <!-- Type 2 -->
+      <div>
+        <h3>Type 2: </h3>
+        <div class="M-bar T-2">
+          <div></div>
+        </div>
+          <div class="M-bar T-2" indeterminate>
+            <div></div>
+        </div>
+        <span class="M-bar T-2">
+          <span></span>
+        </span>
+        <span class="M-bar T-2" indeterminate>
+          <span></span>
+        </span>
+        <progress class="M-bar T-2" value="50" max="100"></progress>
+        <progress class="M-bar T-2"></progress>
+      </div>
+
     </div>
 
     <!------------ 
@@ -250,7 +278,7 @@
           <input type="radio" name="R2" id="R2-8">
           <label for="R2-8"></label>
         </div>
-        <p class="M-page T-2 MP2">
+        <p class="M-page T-2 MP2 calcul">
           <span class="active" onclick="select(this, this.parentElement.children)"></span>
           <span onclick="select(this, this.parentElement.children)"></span>
           <span onclick="select(this, this.parentElement.children)"></span>

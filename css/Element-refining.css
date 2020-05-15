@@ -1,7 +1,8 @@
-webkit
-:is(p,div) {
-  background-color: rebeccapurple;
-  color: green;
+@keyframes M-opacity {
+  100% { opacity: .25; }
+}
+@keyframes M-background {
+  100% { background-position: calc(var(--M-width) * -1); }
 }
 /* Variable to configure elements's parameter */
 :root {
@@ -14,31 +15,31 @@ webkit
 
   /* Layout parameter */
 
-    --M-height: 100%;
-    --M-width: 100%;
-    --M-gap: initial;
-    --M-columns: 1fr;
-    --M-rows: 1fr;
-    --M-align: initial;
-    --M-justify: initial;
-    --M-margin: initial;
-    --M-paddingLeft: initial;
-    --M-paddingRight: var(--M-padding-left);
-    --M-paddingTop: var(--M-paddingLeft);
-    --M-paddingBottom: var(--M-paddingTop);
-    --M-flow: row;
-    --M-repeat: initial;
-    --M-type: auto;
-    --M-Xpos: auto;
-    --M-Ypos: auto;
-    --M-Xsize: 1;
-    --M-Ysize: 1;
-    --M-shader: 0.5;
-    --M-radius: 0;
-    --M-border: none;
-    --M-borderWidth: none;
-    --M-borderStyle: none;
-    --M-borderColor: none;
+    --M-height: length;
+    --M-width: length;
+    --M-gap: length;
+    --M-columns: length;
+    --M-rows: length;
+    --M-align: string;
+    --M-justify: string;
+    --M-margin: length;
+    --M-paddingLeft: length;
+    --M-paddingRight: length;
+    --M-paddingTop: length;
+    --M-paddingBottom: length;
+    --M-flow: string;
+    --M-repeat: int or string;
+    --M-type: string;
+    --M-Xpos: int;
+    --M-Ypos: int;
+    --M-Xsize: int;
+    --M-Ysize: int;
+    --M-shader: decimal;
+    --M-radius: length;
+    --M-border: string and length;
+    --M-borderWidth: length;
+    --M-borderStyle: string;
+    --M-borderColor: string;
     
   /* Style parameter */
 
@@ -81,8 +82,9 @@ webkit
 
   /* dependence of the variables "--M-barder" on the other variable "--M-border"  */
   --M-border: var(--M-borderWidth) var(--M-borderStyle) var(--M-borderColor);
+  box-sizing: border-box;
 }
-input[class*="M-"], [class*="M-"] > input {
+[class*="M-"] > input {
   border-style: double;
   border-width: 1px;
   border-radius: 2.5px;
@@ -217,46 +219,106 @@ input[class*="M-"], [class*="M-"] > input {
   --M-primaryR: 255;
   --M-primaryG: 255;
   --M-primaryB: 255;
+  --M-red: var(--M-primaryR);
+  --M-green: var(--M-primaryG);
+  --M-blue: var(--M-primaryB);
+  --M-width: 10em;
+  --M-height: 1em;
+  --M-shader: 50;
+  --M-radius: 2.5px;
+  --M-type: "loading...";
+
+  counter-reset: progress var(--M-shader);
   overflow: hidden;
   display: grid;
-  width: 200px;
+  width: var(--M-width);
   position: relative;
-  height: 1em;
-  border: 1px double;
-  border-radius: 2.5px;
+  height: var(--M-height);
+  border: 1px double var(--M-color);
+  border-radius: var(--M-radius);
+  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.5) inset, -1px -2px 10px 0 rgba(255, 255, 255, 0.5) inset;
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
 }
-.M-bar::before {
-  position: absolute;
-  display: inline-grid;
-  align-content: center;
-  justify-content: center;
-  content: "50%";
-  color: var(--M-color);
-  width: 200px;
-  height: 100%;
+progress.M-bar::-webkit-progress-bar {
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
+  border-radius: var(--M-radius);
+  height: var(--M-height);
+  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.5) inset, -1px -2px 10px 0 rgba(255, 255, 255, 0.5) inset;
 }
-.M-bar>:nth-child(1) {
+progress.M-bar:indeterminate, progress.M-bar:indeterminate::-webkit-progress-bar, progress.M-bar::-webkit-progress-value {
+  background-color: rgb(var(--M-secondaryR), var(--M-secondaryG), var(--M-secondaryB));
+  border-radius: var(--M-radius);
+  box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 1px -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
+  transition: ease .5s all;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2));
+}
+progress.M-bar:indeterminate, .M-bar[indeterminate]:not(progress)>:nth-child(1) {
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2)),
+  linear-gradient(45deg, rgba(255, 255, 255, .5) 25%, rgba(0, 0, 0, .5) 25%, rgba(0, 0, 0, .5) 50%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .5) 75%, rgba(0, 0, 0, .5) 75%);
+  background-size: calc(var(--M-width) / 10);
+  animation: M-background 5s linear infinite;
+}
+progress.M-bar:indeterminate::-webkit-progress-bar{
+  background: transparent;
+  box-shadow: none;
+}
+progress:indeterminate.M-bar::-moz-progress-bar {
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2)),
+  linear-gradient(45deg, rgba(255, 255, 255, .5) 25%, rgba(0, 0, 0, .5) 25%, rgba(0, 0, 0, .5) 50%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .5) 75%, rgba(0, 0, 0, .5) 75%);
+  background-size: calc(var(--M-width) / 10);
+  animation: M-background 5s linear infinite;
+}
+progress.M-bar::-moz-progress-bar {
+  --M-red: var(--M-secondaryR);
+  --M-green: var(--M-secondaryG);
+  --M-blue: var(--M-secondaryB);
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
+  border-radius: var(--M-radius);
+  box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 1px -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
+  transition: ease .5s all;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2));
+}
+.M-bar:not(progress)>:nth-child(1) {
   --M-red: var(--M-secondaryR);
   --M-green: var(--M-secondaryG);
   --M-blue: var(--M-secondaryB);
   position: relative;
   background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
   overflow: hidden;
-  width: 50%;
+  width: calc( 1% * var(--M-shader));
   height: 100%;
-  border-radius: 2.5px;
+  border-radius: var(--M-radius);
+  box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 1px -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
+  transition: ease .5s all;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2));
 }
-.M-bar>:nth-child(1)::before {
+.M-bar[indeterminate]:not(progress) {
+  --M-shader: 100;
+}
+.M-bar.T-2:not(progress)::before {
+  position: absolute;
+  display: inline-grid;
+  align-content: center;
+  justify-content: center;
+  content: counter(progress)"%";
+  color: var(--M-color);
+  width: var(--M-width);
+  height: 100%;
+}
+.M-bar.T-2:not(progress)>:nth-child(1)::before {
   display: inline-grid;
   align-content: center;
   justify-content: center;
   position: absolute;
-  content: "50%";
+  content: counter(progress)"%";
   color: var(--M-color);
-  width: 200px;
+  width: var(--M-width);
   height: 100%;
 }
-
+.M-bar.T-2[indeterminate]:not(progress)::before, .M-bar.T-2[indeterminate]:not(progress)>:nth-child(1)::before {
+  animation: ease-in-out M-opacity 1s alternate infinite;
+  content: var(--M-type);
+}
 /* -Pagination(inprocess)- */
 
   /* Type 1 */
@@ -324,7 +386,7 @@ input[class*="M-"], [class*="M-"] > input {
 
 /* -Searchbar(inprocess)- */
 .M-search{
-  --M-width: 50%
+  --M-width: var(--M-shader)
 }
   /* Type 1 */
 [contenteditable="true"].M-search, input[type="text"].M-search, textarea.M-search,

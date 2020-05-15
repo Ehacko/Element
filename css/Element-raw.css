@@ -119,17 +119,36 @@ input {
 /* -ProgressBar- */
 
   /* Type 1 */
+
+progress[value]::-webkit-progress-bar {
+  background-color: transparent;
+  border-radius: 2px;
+}
+progress[value]::-webkit-progress-value {
+  background-color: blue;
+  border-radius: 2px; 
+}
 .M-bar {
   overflow: hidden;
-  display: grid;
-  width: 200px;
+  display: inline-grid;
+  width: 10em;
   position: relative;
   height: 1em;
   border: 1px double;
   border-radius: 2.5px;
+  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.5) inset, 0 -2px 10px 3px rgba(255, 255, 255, 0.5) inset;
 }
-
-.M-bar::before {
+.M-bar:not(progress)>:nth-child(1) {
+  position: relative;
+  background-color: blue;
+  overflow: hidden;
+  width: 50%;
+  height: 100%;
+  border-radius: 2.5px;
+  box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 0 -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
+}
+  /* Type 2 */
+.M-bar.T-2:not(progress)::before {
   position: absolute;
   display: inline-grid;
   align-content: center;
@@ -139,17 +158,7 @@ input {
   width: 200px;
   height: 100%;
 }
-
-.M-bar>:nth-child(1) {
-  position: relative;
-  background-color: blue;
-  overflow: hidden;
-  width: 50%;
-  height: 100%;
-  border-radius: 2.5px;
-}
-
-.M-bar>:nth-child(1)::before {
+.M-bar.T-2:not(progress)>:nth-child(1)::before {
   display: inline-grid;
   align-content: center;
   justify-content: center;
