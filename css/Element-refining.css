@@ -80,7 +80,7 @@
   box-sizing: border-box;
 }
 [class*="M-"], [class*="M-"]:not(.M-search) > *  {
-  /* dependence of the variables "padding" on the variable "---M-paddingLeft"*/
+  /* dependence of the variables "padding" on the variable "--M-paddingLeft"*/
   --M-paddingRight: var(--M-paddingLeft);
   --M-paddingTop: var(--M-paddingLeft);
   --M-paddingBottom: var(--M-paddingTop);
@@ -268,7 +268,7 @@
   width: var(--M-width);
   height: var(--M-height);
   padding: var(--M-padding);
-  padding-left: calc(25px + var(---M-paddingLeft));
+  padding-left: calc(25px + var(--M-paddingLeft));
   gap: var(--M-gap);
   grid-auto-columns: var(--M-column);
   grid-auto-rows: var(--M-row);
@@ -545,6 +545,13 @@ input.M-search::placeholder,
   
 /* -Switch(inprocess)- */
 .M-switch {
+  --M-primaryR: 68;
+  --M-primaryG: 204;
+  --M-primaryB: 102;
+  --M-secondaryR: 204;
+  --M-secondaryG: 68;
+  --M-secondaryB: 68;
+  --M-opacity: 0.7;
   --M-width: 4em;
   --M-height: 1.5em;
   --M-radius: 25px;
@@ -592,8 +599,8 @@ input.M-search::placeholder,
   background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
   0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
-  0 0 0 0 rgba(68, 204, 102, 0.7) inset,
-  calc(var(--M-width) * -1) 0 0 0 rgba(204, 68, 68, 0.7) inset;
+  0 0 0 0 rgba(var(--M-primaryR), var(--M-primaryG), var(--M-primaryB), var(--M-opacity)) inset,
+  calc(var(--M-width) * -1) 0 0 0 rgba(var(--M-secondaryR), var(--M-secondaryG), var(--M-secondaryB), var(--M-opacity)) inset;
   grid-row: 1;
   grid-column: 1;
   border: var(--M-border);
@@ -607,8 +614,8 @@ input.M-search::placeholder,
 .M-switch:checked:empty::before {
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
   0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
-  var(--M-width) 0 0 0 rgba(68, 204, 102, 0.7) inset,
-  0 0 0 0 rgba(204, 68, 68, 0.7) inset;
+  var(--M-width) 0 0 0 rgba(var(--M-primaryR), var(--M-primaryG), var(--M-primaryB), var(--M-opacity)) inset,
+  0 0 0 0 rgba(var(--M-secondaryR), var(--M-secondaryG), var(--M-secondaryB), var(--M-opacity)) inset;
 }
 .M-switch > :checked + ::after,
 :checked + .M-switch:empty::after,
