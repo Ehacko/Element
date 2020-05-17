@@ -400,9 +400,9 @@ progress.M-bar::-moz-progress-bar {
 
   /* Type 1 */
 .M-page {
-  --M-primaryR: 255;
-  --M-primaryG: 255;
-  --M-primaryB: 255;
+  --M-primaryR: 0;
+  --M-primaryG: 0;
+  --M-primaryB: 0;
   --M-secondaryR: 0;
   --M-secondaryG: 0;
   --M-secondaryB: 255;
@@ -410,12 +410,21 @@ progress.M-bar::-moz-progress-bar {
   --M-green: var(--M-primaryG);
   --M-blue: var(--M-primaryB);
   --M-type: decimal;
+  --M-fontSize: 1.25em;
+  --M-column: 2.5em;
+  --M-row: var(--M-column);
 
   counter-reset: pageN;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 50px);
-  grid-auto-rows: 50px;
+  grid-template-columns: repeat(auto-fit, var(--M-column));
+  grid-auto-rows: var(--M-row);
   justify-content: center;
+  font-size: var(--M-fontSize);
+}
+.M-page.T-2{
+  --M-primaryR: 255;
+  --M-primaryG: 255;
+  --M-primaryB: 255;
 }
 .M-page>[type="radio"] {
   display: none;
@@ -454,9 +463,9 @@ progress.M-bar::-moz-progress-bar {
 .M-page.T-2 > :not(input) {
   align-content: center;
   justify-content: center;
+  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
 }
 .M-page.T-2 > :not(input)::before {
-  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
   color: var(--M-color);
 }
 .M-page.T-2 > :checked + label, .M-page.T-2 > :not(input).active, .M-page.T-2 > :not(input):hover {
@@ -466,14 +475,18 @@ progress.M-bar::-moz-progress-bar {
 
 /* -Searchbar(inprocess)- */
 .M-search{
-  --M-width: 50%;
-  --M-height: unset;
+  --M-width: 250px;
+  --M-height: 1.5em;
   --M-margin: 2.5px;
-  --M-paddingLeft: 24px;
-  --M-paddingTop: 12px;
-}
-.M-search:not(.T-2){
-  --M-radius: 50px;
+  --M-paddingLeft: 10px;
+  --M-paddingTop: calc( (var(--M-height) - ( var(--M-fontSize) * 1.5 )) / 2 );
+  --M-radius: 2.5px;
+  --M-borderWidth: 1px;
+  --M-borderStyle: solid;
+  --M-borderColor: rgb(150, 150, 150);
+  --M-fontSize: 14px;
+  --M-shader: 1;
+
 }
   /* Type 1 */
 [contenteditable="true"].M-search, input[type="text"].M-search, textarea.M-search,
@@ -483,7 +496,7 @@ progress.M-bar::-moz-progress-bar {
   width: var(--M-width);
   border-radius: var(--M-radius);
   margin: var(--M-margin);
-  border: 1px double #575756;
+  border: var(--M-border);
   box-sizing: border-box;
 }
 [contenteditable="true"].M-search, input[type="text"].M-search, textarea.M-search,
@@ -492,7 +505,7 @@ progress.M-bar::-moz-progress-bar {
 .M-search:not([contenteditable="true"]):not(input):not(textarea)> textarea {
   
   padding: var(--M-padding);
-  line-height: 18px;
+  line-height: calc( var(--M-fontSize) * 1.5 ) !important;
   outline: 0;
   align-content: center;
   
@@ -502,7 +515,7 @@ progress.M-bar::-moz-progress-bar {
   display: inline-grid;
   text-align: start;
   cursor: text;
-  font: 400 13.3333px Arial;
+  font: var(--M-fontSize) Arial;
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
 }
@@ -517,6 +530,17 @@ progress.M-bar::-moz-progress-bar {
   display: inline-grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr auto ;
+  padding-right: calc(( var(--M-height) - ( ((var(--M-fontSize) * 1.5) * var(--M-shader)) + 2px )) / 2 );
+}
+.M-search:not([contenteditable="true"]):not(input):not(textarea) > i {
+  width: calc( ((var(--M-fontSize) * 1.5) * var(--M-shader)) - 1.5px ) ;
+  height: calc( ((var(--M-fontSize) * 1.5) * var(--M-shader)) - 1.5px ) ;
+  font-size: calc( var(--M-fontSize) * var(--M-shader) ) ;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 2.5px;
+  margin: 2px;
 }
 
 [contenteditable="true"].M-search:empty::before,
@@ -529,12 +553,6 @@ input.M-search::placeholder,
   color: var(--M-color);
   opacity: 0.7;
 }
-.M-search:not([contenteditable="true"]):not(input):not(textarea)> i {
-  height: fit-content;
-  width: fit-content;
-  align-self: center;
-  margin: 0 5px;
-} 
   /* Type 2 */
 [contenteditable="true"].M-search.T-2, input[type="text"].M-search.T-2, textarea.M-search.T-2,
 .M-search:not([contenteditable="true"]):not(input):not(textarea).T-2 {
@@ -545,12 +563,12 @@ input.M-search::placeholder,
   
 /* -Switch(inprocess)- */
 .M-switch {
-  --M-primaryR: 68;
-  --M-primaryG: 204;
-  --M-primaryB: 102;
-  --M-secondaryR: 204;
-  --M-secondaryG: 68;
-  --M-secondaryB: 68;
+  --M-primaryR: 204;
+  --M-primaryG: 68;
+  --M-primaryB: 68;
+  --M-secondaryR: 68;
+  --M-secondaryG: 204;
+  --M-secondaryB: 102;
   --M-opacity: 0.7;
   --M-width: 4em;
   --M-height: 1.5em;
@@ -599,8 +617,8 @@ input.M-search::placeholder,
   background: linear-gradient(rgba(0, 0, 0, 0.07), rgba(255, 255, 255, 0.1)), #d0d0d0;
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
   0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
-  0 0 0 0 rgba(var(--M-primaryR), var(--M-primaryG), var(--M-primaryB), var(--M-opacity)) inset,
-  calc(var(--M-width) * -1) 0 0 0 rgba(var(--M-secondaryR), var(--M-secondaryG), var(--M-secondaryB), var(--M-opacity)) inset;
+  0 0 0 0 rgba(var(--M-secondaryR), var(--M-secondaryG), var(--M-secondaryB), var(--M-opacity)) inset,
+  calc(var(--M-width) * -1) 0 0 0 rgba(var(--M-primaryR), var(--M-primaryG), var(--M-primaryB), var(--M-opacity)) inset;
   grid-row: 1;
   grid-column: 1;
   border: var(--M-border);
@@ -614,8 +632,8 @@ input.M-search::placeholder,
 .M-switch:checked:empty::before {
   box-shadow: 0 0.08em 0.15em -0.1em rgba(0, 0, 0, 0.5) inset,
   0 0.05em 0.08em -0.01em rgba(255, 255, 255, 0.7),
-  var(--M-width) 0 0 0 rgba(var(--M-primaryR), var(--M-primaryG), var(--M-primaryB), var(--M-opacity)) inset,
-  0 0 0 0 rgba(var(--M-secondaryR), var(--M-secondaryG), var(--M-secondaryB), var(--M-opacity)) inset;
+  var(--M-width) 0 0 0 rgba(var(--M-secondaryR), var(--M-secondaryG), var(--M-secondaryB), var(--M-opacity)) inset,
+  0 0 0 0 rgba(var(--M-primaryR), var(--M-primaryG), var(--M-primaryB), var(--M-opacity)) inset;
 }
 .M-switch > :checked + ::after,
 :checked + .M-switch:empty::after,
