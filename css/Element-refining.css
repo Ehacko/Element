@@ -530,11 +530,11 @@ progress.M-bar::-moz-progress-bar {
   display: inline-grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr auto ;
-  padding-right: calc(( var(--M-height) - ( ((var(--M-fontSize) * 1.5) * var(--M-shader)) + 2px )) / 2 );
+  padding-right: calc(( var(--M-height) - ( ((var(--M-fontSize) * 1.5) * var(--M-shader)) + 3px )) / 2 );
 }
 .M-search:not([contenteditable="true"]):not(input):not(textarea) > i {
-  width: calc( ((var(--M-fontSize) * 1.5) * var(--M-shader)) - 1.5px ) ;
-  height: calc( ((var(--M-fontSize) * 1.5) * var(--M-shader)) - 1.5px ) ;
+  width: calc( ((var(--M-height) - 4.5px) * var(--M-shader)) ) ;
+  height: calc( ((var(--M-height) - 4.5px) * var(--M-shader)) ) ;
   font-size: calc( var(--M-fontSize) * var(--M-shader) ) ;
   align-self: center;
   align-content: center;
