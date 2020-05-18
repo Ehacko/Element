@@ -193,7 +193,6 @@
   display: grid;
   width: var(--M-width);
   height: var(--M-height);
-  overflow-y: auto;
   gap: var(--M-gap);
   margin: var(--M-margin);
   padding: var(--M-padding);
@@ -489,7 +488,7 @@ progress.M-bar::-moz-progress-bar {
 
 }
   /* Type 1 */
-[contenteditable="true"].M-search, input[type="text"].M-search, textarea.M-search,
+[contenteditable="true"].M-search, input:not([type="checkbox"]):not([type="radio"]).M-search, textarea.M-search,
 .M-search:not([contenteditable="true"]):not(input):not(textarea) {
   position: relative;
   overflow: hidden;
@@ -499,9 +498,9 @@ progress.M-bar::-moz-progress-bar {
   border: var(--M-border);
   box-sizing: border-box;
 }
-[contenteditable="true"].M-search, input[type="text"].M-search, textarea.M-search,
+[contenteditable="true"].M-search, input:not([type="checkbox"]):not([type="radio"]).M-search, textarea.M-search,
 .M-search:not([contenteditable="true"]):not(input):not(textarea)> [contenteditable="true"],
-.M-search:not([contenteditable="true"]):not(input):not(textarea)> input[type="text"],
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> input:not([type="checkbox"]):not([type="radio"]),
 .M-search:not([contenteditable="true"]):not(input):not(textarea)> textarea {
   
   padding: var(--M-padding);
@@ -518,13 +517,17 @@ progress.M-bar::-moz-progress-bar {
   font: var(--M-fontSize) Arial;
   -moz-user-modify: read-write;
   -webkit-user-modify: read-write;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr;
 }
-
 .M-search:not([contenteditable="true"]):not(input):not(textarea)> [contenteditable="true"],
-.M-search:not([contenteditable="true"]):not(input):not(textarea)> input[type="text"],
+.M-search:not([contenteditable="true"]):not(input):not(textarea)> input:not([type="checkbox"]):not([type="radio"]),
 .M-search:not([contenteditable="true"]):not(input):not(textarea)> textarea {
   border: none;
   border-radius: var(--M-radius);
+}
+.M-search > textarea:not([row]), textarea.M-search:not([row]) {
+  height: calc( var(--M-fontSize) * 1.5 );
 }
 .M-search:not([contenteditable="true"]):not(input):not(textarea) {
   display: inline-grid;
@@ -533,8 +536,9 @@ progress.M-bar::-moz-progress-bar {
   padding-right: calc(( var(--M-height) - ( ((var(--M-fontSize) * 1.5) * var(--M-shader)) + 3px )) / 2 );
 }
 .M-search:not([contenteditable="true"]):not(input):not(textarea) > i {
-  width: calc( ((var(--M-height) - 4.5px) * var(--M-shader)) ) ;
-  height: calc( ((var(--M-height) - 4.5px) * var(--M-shader)) ) ;
+  display: grid;
+  width: calc( ((var(--M-height) - 4px) * var(--M-shader)) ) ;
+  height: calc( ((var(--M-height) - 4px) * var(--M-shader)) ) ;
   font-size: calc( var(--M-fontSize) * var(--M-shader) ) ;
   align-self: center;
   align-content: center;
@@ -542,7 +546,6 @@ progress.M-bar::-moz-progress-bar {
   border-radius: 2.5px;
   margin: 2px;
 }
-
 [contenteditable="true"].M-search:empty::before,
 textarea.M-search::placeholder,
 input.M-search::placeholder,
@@ -554,7 +557,7 @@ input.M-search::placeholder,
   opacity: 0.7;
 }
   /* Type 2 */
-[contenteditable="true"].M-search.T-2, input[type="text"].M-search.T-2, textarea.M-search.T-2,
+[contenteditable="true"].M-search.T-2, input:not([type="checkbox"]):not([type="radio"]).M-search.T-2, textarea.M-search.T-2,
 .M-search:not([contenteditable="true"]):not(input):not(textarea).T-2 {
   border-top-color: transparent;
   border-left-color: transparent;

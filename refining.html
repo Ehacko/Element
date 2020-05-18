@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/Element-refining.css">
     <style>
       i.search-i {
-        background: olive;
+        background: black;
       }
     </style>
     <script defer>
@@ -29,6 +29,7 @@
         a.classList.remove('active');
       }
     </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
 
@@ -83,7 +84,7 @@
       <!-- type 1 -->
       <div>
         <h3>Type 1: </h3>
-        <div style="display: flex; justify-content: space-around; margin: 100px;">
+        <div style="display: flex; justify-content: space-around;">
           <form class="M-form">
             <label for="L1A-1">Label 1</label>
             <input type="text" id="L1A-1">
@@ -132,7 +133,7 @@
       <!-- type 2 -->
       <div>
         <h3>Type 2: </h3>
-        <div style="display: flex; justify-content: space-around; margin: 100px;">
+        <div style="display: flex; justify-content: space-around;">
           <form class="M-form T-2">
             <label for="L2A-1">Label</label>
             <input type="text" id="L2A-1">
@@ -189,7 +190,7 @@
       <!-- Type 1 -->
       <div>
         <h3>Type 1: </h3>
-        <div style="display: flex; justify-content: space-around; margin: 100px;">
+        <div style="display: flex; justify-content: space-around;">
           <ol class="M-list">
             <li>list-item 1</li>
             <li>list-item 2</li>
@@ -375,12 +376,28 @@
         <h3>Type 1: </h3>
         <div>
           <input type="text" name="" id="" class="M-search" placeholder="Search">
-          <div class="M-search" contenteditable="true" placeholder="Search"></div>
+          <input type="number" name="" id="" class="M-search" placeholder="Search">
+          <input type="mail" name="" id="" class="M-search" placeholder="Search">
+          <input type="date" name="" id="" class="M-search" placeholder="Search"><br>
+          <div class="M-search" contenteditable="true" placeholder="Search"></div><br>
+          <textarea cols="30" rows="1" class="M-search" placeholder="Search"></textarea>
+          <textarea class="M-search" placeholder="Search"></textarea><br>
           <div class="M-search">
             <div contenteditable="true" placeholder="Search"></div>
             <i class="search-i"></i>
           </div>
-          <textarea cols="30" rows="1" class="M-search" placeholder="Search"></textarea>
+          <p class="M-search">
+            <span contenteditable="true" placeholder="Search"></span>
+            <i class="fas fa-file"></i>
+          </p>
+          <span class="M-search">
+            <span contenteditable="true" placeholder="Search"></span>
+            <i class="fas fa-heart"></i>
+          </span>
+          <span class="M-search">
+            <span contenteditable="true" placeholder="Search"></span>
+            <i class="fas fa-car"></i>
+          </span>
         </div>
       </div>
 
@@ -389,12 +406,25 @@
         <h3>Type 2: </h3>
         <div>
           <input type="text" name="" id="" class="M-search T-2" placeholder="Search">
-          <div class="M-search T-2" contenteditable="true" placeholder="Search"></div>
+          <div class="M-search T-2" contenteditable="true" placeholder="Search"></div><br>
+          <textarea cols="30" rows="1" class="M-search T-2" placeholder="Search"></textarea>
+          <textarea class="M-search T-2" placeholder="Search"></textarea><br>
           <div class="M-search T-2">
             <div contenteditable="true" placeholder="Search"></div>
             <i class="search-i"></i>
           </div>
-          <textarea cols="30" rows="1" class="M-search T-2" placeholder="Search"></textarea>
+          <div class="M-search T-2">
+            <div contenteditable="true" placeholder="Search"></div>
+            <i class="fas fa-file"></i>
+          </div>
+          <div class="M-search T-2">
+            <div contenteditable="true" placeholder="Search"></div>
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="M-search T-2">
+            <div contenteditable="true" placeholder="Search"></div>
+            <i class="fas fa-car"></i>
+          </div>
         </div>
       </div>
     </div>
