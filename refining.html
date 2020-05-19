@@ -18,22 +18,26 @@
         --M-blue: 25;
         --M-opacity: .75;
       }
-      .M-grid:nth-child(2) {
+      .M-box:nth-child(2) {
         --M-column: 75px 100px 75px;
         --M-row: 100px;
       }
-      .M-gridT2:nth-child(1) {
+      .M-boxT2:nth-child(1) {
         --M-column: 75px;
         --M-row: 100px;
       }
-      .M-gridT2:nth-child(2) {
+      .M-boxT2:nth-child(2) {
         --M-column: 75px 100px 125px;
         --M-row: 125px 100px 75px;
       }
-      .M-boxT2 > :nth-child(odd){
+      .M-boxT3 {
+        --M-row: 2em;
+        background: whitesmoke;
+      }
+      [class*="M-box"] > :nth-child(odd){
         background: linear-gradient(45deg, black, transparent);
       }
-      .M-boxT2 > :nth-child(even){
+      [class*="M-box"] > :nth-child(even){
         background: linear-gradient(315deg, black, transparent);
       }
     </style>
@@ -583,6 +587,24 @@
             <div></div>
             <div></div>
             <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
           <span class="M-boxT2">
             <span></span>
@@ -597,67 +619,6 @@
             <span></span>
             <span></span>
             <span></span>
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!------------ 
-        Grid
-    ------------->
-
-    <div class="Mods">
-      <h2>GRID</h2>
-
-      <!-- Type 1 -->
-      <div>
-        <h3>Type 1: </h3>
-        <div>
-          <div class="M-grid">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <span class="M-grid">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
             <span></span>
             <span></span>
             <span></span>
@@ -680,29 +641,11 @@
         </div>
       </div>
 
-      <!-- Type 2 -->
+      <!-- Type 3 -->
       <div>
-        <h3>Type 2: </h3>
+        <h3>Type 3: </h3>
         <div>
-          <div class="M-gridT2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <div class="M-boxT3">
             <div></div>
             <div></div>
             <div></div>
@@ -716,25 +659,7 @@
             <div></div>
             <div></div>
           </div>
-          <span class="M-gridT2">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+          <span class="M-boxT3">
             <span></span>
             <span></span>
             <span></span>

@@ -714,23 +714,55 @@ progress[class*="M-bar"]::-moz-progress-bar {
       --M-justify: left;
       --M-paddingLeft: var(--M-gap);
       --M-shader: .5;
-      --M-row: 2.5em;
       --M-gap: .25em;
+      --M-type: auto-fit;
+      --M-column: 100px;
+      --M-row: 100%;
+      --M-red: 255;
+      --M-green: 255;
+      --M-blue: 255;
+      --M-opacity: 0;
+      --M-margin: 2.5px;
 
       display: grid;
       width: var(--M-width);
       height: var(--M-height);
       padding: var(--M-padding);
-      grid-auto-rows: var(--M-row);
       grid-auto-flow: dense;
+      gap: var(--M-gap);
+      margin: var(--M-margin);
+      background-color: rgba(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
+      grid-template-columns: repeat(var(--M-type), var(--M-column));
+      grid-auto-rows: 1fr;
+    }
+    .M-box:not(:empty):before {
+      content: '';
+      width: 0;
+      padding-bottom: var(--M-row);
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+    .M-box > :first-child {
+      grid-row: 1 / 1;
+      grid-column: 1 / 1
+    }
+    [class*="M-boxT"]{
+      grid-auto-rows: var(--M-row);
     }
     .M-boxT2 {
+      grid-template-columns: repeat(var(--M-type), var(--M-column));
+    }
+    .M-boxT3 {
       grid-template-columns: calc(33% * var(--M-shader) ) 1fr calc(33% * var(--M-shader) );
     }
-    .M-boxT2 > * {
+    .M-boxT3 > * {
       grid-column: span 2;
     }
-    .M-boxT2 > :nth-child(6n-5), .M-boxT2 > :nth-child(6n) {
+    .M-boxT3:nth-child(odd) > :nth-child(6n-5), .M-boxT3:nth-child(odd) > :nth-child(6n) {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
+    .M-boxT3:nth-child(even) > :nth-child(6n-3), .M-boxT3:nth-child(even) > :nth-child(6n-2) {
       grid-column: span 1;
       grid-row: span 2;
     }
@@ -764,45 +796,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
 /* -Grid- */
 
   /* general */
-[class*="M-grid"] {
-  --M-width: 100%;
-  --M-height: 100%;
-  --M-type: auto-fit;
-  --M-gap: 5px;
-  --M-column: 100px;
-  --M-row: 100%;
-  --M-red: 255;
-  --M-green: 255;
-  --M-blue: 255;
-  --M-opacity: 0;
-  --M-margin: 2.5px;
-  --M-paddingLeft: var(--M-gap);
 
-  display: grid;
-  gap: var(--M-gap);
-  grid-template-columns: repeat(var(--M-type), var(--M-column));
-  grid-auto-rows: 1fr;
-  width: var(--M-width);
-  height: var(--M-height);
-  background-color: rgba(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
-  margin: var(--M-margin);
-  padding: var(--M-padding);
-}
-.M-grid:not(:empty):before {
-  content: '';
-  width: 0;
-  padding-bottom: var(--M-row);
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
-}
-.M-grid>*:first-child {
-  grid-row: 1 / 1;
-  grid-column: 1 / 1
-}
-
-.M-gridT2 {
-  grid-auto-rows: var(--M-row);
-}
 
 /*______Container______*/
 
