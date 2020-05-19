@@ -179,17 +179,14 @@ progress[value]::-webkit-progress-value {
   grid-auto-rows: 50px;
   justify-content: center;
 }
-
 .M-page>[type="radio"] {
   display: none;
 }
-
 .M-page > :not(input) {
   display: grid;
   align-content: center;
   justify-content: center;
 }
-
   /* Type 2 */
 .M-page.T-2 > :not(input)::before {
   counter-increment: pageN;
@@ -233,20 +230,17 @@ progress[value]::-webkit-progress-value {
   cursor: text;
   font: 400 13.3333px Arial;
 }
-
 .M-search:not([contenteditable]):not(input):not(textarea)> [contenteditable],
 .M-search:not([contenteditable]):not(input):not(textarea)> input[type="text"],
 .M-search:not([contenteditable]):not(input):not(textarea)> textarea {
   border: none;
   border-radius: 50px;
 }
-
 .M-search:not([contenteditable]):not(input):not(textarea) {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 1fr auto ;
 }
-
 [contenteditable].M-search:empty::before,
 input[type="text"].M-search:empty::before,
 textarea.M-search:empty::before,
@@ -256,7 +250,6 @@ textarea.M-search:empty::before,
   content: attr(placeholder);
   color: #575756;
 }
-
 .M-search:not([contenteditable]):not(input):not(textarea)> i {
   height: fit-content;
   width: fit-content;

@@ -60,7 +60,7 @@
         <h3>Type 1: </h3>
         <div>
           <span class="M-card"></span>
-          <div class="M card"></div>
+          <div class="M-card"></div>
         </div>
       </div>
         
@@ -68,8 +68,8 @@
       <div>
         <h3>Type 2: </h3>
         <div>
-          <span class="M-card"></span>
-          <div class="M card"></div>
+          <span class="M-cardT2"></span>
+          <div class="M-cardT2"></div>
         </div>
       </div>
     </div>
@@ -134,7 +134,7 @@
       <div>
         <h3>Type 2: </h3>
         <div style="display: flex; justify-content: space-around;">
-          <form class="M-form T-2">
+          <form class="M-formT2">
             <label for="L2A-1">Label</label>
             <input type="text" id="L2A-1">
             <label for="L2A-2">Label Label</label>
@@ -148,7 +148,7 @@
             <label for="L2A-6">Label Label Label Label Label Label</label>
             <input type="text" id="L2A-6">
           </form>
-          <div class="M-form T-2">
+          <div class="M-formT2">
             <label for="L2B-1">Label</label>
             <input type="text" id="L2B-1">
             <label for="L2B-2">Label Label</label>
@@ -162,7 +162,7 @@
             <label for="L2B-6">Label Label Label Label Label Label</label>
             <input type="text" id="L2B-6">
           </div>
-          <span class="M-form T-2 reverse">
+          <span class="M-formT2 reverse">
             <input type="text" id="L2C-1">
             <label for="L2C-1">Label</label>
             <input type="text" id="L2C-2">
@@ -229,6 +229,49 @@
           </div>
         </div>
       </div>
+
+      <!-- Type 2 -->
+      <div>
+        <h3>Type 2: </h3>
+        <div style="display: flex; justify-content: space-around;">
+          <ol class="M-listT2">
+            <li>list-item 1</li>
+            <li>list-item 2</li>
+            <li>list-item 3</li>
+            <li>list-item 4</li>
+            <li>list-item 5</li>
+            <li>list-item 6</li>
+            <li>list-item 7</li>
+            <li>list-item 8</li>
+            <li>list-item 9</li>
+            <li>list-item 10</li>
+          </ol>
+          <ul class="M-listT2">
+            <li>list-item 1</li>
+            <li>list-item 2</li>
+            <li>list-item 3</li>
+            <li>list-item 4</li>
+            <li>list-item 5</li>
+            <li>list-item 6</li>
+            <li>list-item 7</li>
+            <li>list-item 8</li>
+            <li>list-item 9</li>
+            <li>list-item 10</li>
+          </ul>
+          <div class="M-listT2">
+            <span>list-item 1</span>
+            <span>list-item 2</span>
+            <span>list-item 3</span>
+            <span>list-item 4</span>
+            <span>list-item 5</span>
+            <span>list-item 6</span>
+            <span>list-item 7</span>
+            <span>list-item 8</span>
+            <span>list-item 9</span>
+            <span>list-item 10</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!------------ 
@@ -263,20 +306,20 @@
       <div>
         <h3>Type 2: </h3>
         <div>
-          <div class="M-bar T-2">
+          <div class="M-barT2">
             <div></div>
           </div>
-            <div class="M-bar T-2" indeterminate>
+            <div class="M-barT2" indeterminate>
               <div></div>
           </div>
-          <span class="M-bar T-2">
+          <span class="M-barT2">
             <span></span>
           </span>
-          <span class="M-bar T-2" indeterminate>
+          <span class="M-barT2" indeterminate>
             <span></span>
           </span>
-          <progress class="M-bar T-2" value="50" max="100"></progress>
-          <progress class="M-bar T-2"></progress>
+          <progress class="M-barT2" value="50" max="100"></progress>
+          <progress class="M-barT2"></progress>
         </div>
       </div>
 
@@ -330,7 +373,7 @@
       <div>
         <h3>Type 2: </h3>
         <div>
-          <div class="M-page T-2 MP2">
+          <div class="M-pageT2 MP2">
             <input type="radio" name="R2" id="R2-1" checked>
             <label for="R2-1"></label>
             <input type="radio" name="R2" id="R2-2">
@@ -348,7 +391,7 @@
             <input type="radio" name="R2" id="R2-8">
             <label for="R2-8"></label>
           </div>
-          <p class="M-page T-2 MP2">
+          <p class="M-pageT2 MP2">
             <span class="active" onclick="select(this, this.parentElement.children)"></span>
             <span onclick="select(this, this.parentElement.children)"></span>
             <span onclick="select(this, this.parentElement.children)"></span>
@@ -405,23 +448,23 @@
       <div>
         <h3>Type 2: </h3>
         <div>
-          <input type="text" name="" id="" class="M-search T-2" placeholder="Search">
-          <div class="M-search T-2" contenteditable="true" placeholder="Search"></div><br>
-          <textarea cols="30" rows="1" class="M-search T-2" placeholder="Search"></textarea>
-          <textarea class="M-search T-2" placeholder="Search"></textarea><br>
-          <div class="M-search T-2">
+          <input type="text" name="" id="" class="M-searchT2" placeholder="Search">
+          <div class="M-searchT2" contenteditable="true" placeholder="Search"></div><br>
+          <textarea cols="30" rows="1" class="M-searchT2" placeholder="Search"></textarea>
+          <textarea class="M-searchT2" placeholder="Search"></textarea><br>
+          <div class="M-searchT2">
             <div contenteditable="true" placeholder="Search"></div>
             <i class="search-i"></i>
           </div>
-          <div class="M-search T-2">
+          <div class="M-searchT2">
             <div contenteditable="true" placeholder="Search"></div>
             <i class="fas fa-file"></i>
           </div>
-          <div class="M-search T-2">
+          <div class="M-searchT2">
             <div contenteditable="true" placeholder="Search"></div>
             <i class="fas fa-heart"></i>
           </div>
-          <div class="M-search T-2">
+          <div class="M-searchT2">
             <div contenteditable="true" placeholder="Search"></div>
             <i class="fas fa-car"></i>
           </div>
@@ -450,6 +493,45 @@
             <label for="p3"></label>
           </div>
           <a class="M-switch" onclick="switcher(this)"></a>
+        </div>
+      </div>
+    </div>
+
+    <!------------ 
+        Grid
+    ------------->
+
+    <div class="Mods">
+      <h2>GRID</h2>
+
+      <!-- Type 1 -->
+      <div>
+        <h3>Type 1: </h3>
+        <div>
+          <div class="M-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <span class="M-grid">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </div>
       </div>
     </div>
