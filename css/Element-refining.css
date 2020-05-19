@@ -707,8 +707,32 @@ progress[class*="M-bar"]::-moz-progress-bar {
 /* -Box- */
 
   /* general */
-    [class*="M-box"]{
+    [class*="M-box"] {
+      --M-width: 100%;
+      --M-heiht: unset;
+      --M-align: baseline;
+      --M-justify: left;
+      --M-paddingLeft: var(--M-gap);
+      --M-shader: .5;
+      --M-row: 2.5em;
+      --M-gap: .25em;
+
       display: grid;
+      width: var(--M-width);
+      height: var(--M-height);
+      padding: var(--M-padding);
+      grid-auto-rows: var(--M-row);
+      grid-auto-flow: dense;
+    }
+    .M-boxT2 {
+      grid-template-columns: calc(33% * var(--M-shader) ) 1fr calc(33% * var(--M-shader) );
+    }
+    .M-boxT2 > * {
+      grid-column: span 2;
+    }
+    .M-boxT2 > :nth-child(6n-5), .M-boxT2 > :nth-child(6n) {
+      grid-column: span 1;
+      grid-row: span 2;
     }
 
 /* -Menu- */
