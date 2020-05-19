@@ -75,42 +75,6 @@ CSS
 .M-modal.full:empty::before {
   content: "";
 }
-.M-head>[type="checkbox"], .M-modal {
-  display: none;
-}
-.M-head, .M-foot {
-  position: relative;
-}
-
-.M-btn{
-
-  padding: 2px 6px;
-  background: linear-gradient(
-    rgb(var(--M-R), var(--M-G), var(--M-B)),
-    rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9))
-  );
-  border: solid 1px rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9));
-  border-radius: 2px;
-  outline: none;
-  justify-content: center;
-  align-content: center;
-  text-decoration: none;
-  color: black;
-  font: 400 13.3333px Arial;
-}
-.M-btn:hover {
-  border-color: rgb(calc(var(--M-R)*0.5), calc(var(--M-G)*0.5), calc(var(--M-B)*0.5));
-}
-.M-btn:active {
-
-  background: linear-gradient(
-    rgb(calc(var(--M-R)*0.9), calc(var(--M-G)*0.9), calc(var(--M-B)*0.9)),
-    rgb(var(--M-R), var(--M-G), var(--M-B))
-  );
-  border-color: rgb(calc(var(--M-R)*0.7), calc(var(--M-G)*0.7), calc(var(--M-B)*0.7));
-
-}
-
 
 .G1x2{
   grid-row: auto / span 2;

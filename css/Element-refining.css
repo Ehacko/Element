@@ -590,7 +590,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
       }
   /* Type 2 */
     [contenteditable="true"].M-searchT2, input:not([type="checkbox"]):not([type="radio"]).M-searchT2, textarea.M-searchT2,
-    .M-search:not([contenteditable="true"]):not(input):not(textarea)T2 {
+    .M-searchT2:not([contenteditable="true"]):not(input):not(textarea) {
       border-top-color: transparent;
       border-left-color: transparent;
       border-right-color: transparent;
@@ -737,20 +737,29 @@ progress[class*="M-bar"]::-moz-progress-bar {
 /* -Grid- */
 
   /* general */
-.M-grid {
+[class*="M-grid"] {
   --M-width: 100%;
   --M-height: 100%;
   --M-type: auto-fit;
   --M-gap: 5px;
-  --M-column: 250px;
-  --M-row: 250px;
+  --M-column: 100px;
+  --M-row: 100%;
+  --M-red: 255;
+  --M-green: 255;
+  --M-blue: 255;
+  --M-opacity: 0;
+  --M-margin: 2.5px;
+  --M-paddingLeft: var(--M-gap);
 
   display: grid;
-  gap: var(--M-Gap);
+  gap: var(--M-gap);
   grid-template-columns: repeat(var(--M-type), var(--M-column));
   grid-auto-rows: 1fr;
   width: var(--M-width);
   height: var(--M-height);
+  background-color: rgba(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
+  margin: var(--M-margin);
+  padding: var(--M-padding);
 }
 .M-grid:not(:empty):before {
   content: '';
@@ -764,6 +773,9 @@ progress[class*="M-bar"]::-moz-progress-bar {
   grid-column: 1 / 1
 }
 
+.M-gridT2 {
+  grid-auto-rows: var(--M-row);
+}
 
 /*______Container______*/
 
