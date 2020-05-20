@@ -69,6 +69,11 @@
 
 
 /* dependent variables */
+[class*="M-"] {
+  --M-red: var(--M-primaryR);
+  --M-green: var(--M-primaryG);
+  --M-blue: var(--M-primaryB);
+}
 [class*="M-"], [class*="M-"] > *  {
   all: unset;
   /* constrast variable. if background-color is dark, --M-color equal 255 else --M-color equal 0 */
@@ -155,9 +160,6 @@
     --M-secondaryR: 20;
     --M-secondaryG: 20;
     --M-secondaryB: 20;
-    --M-red: var(--M-primaryR);
-    --M-green: var(--M-primaryG);
-    --M-blue: var(--M-primaryB);
     --M-column: 40%;
     display: inline-grid;
     position: relative;
@@ -289,7 +291,7 @@ ol.M-list {
 .M-list > *{
   display: list-item;
 }
-  /* general */
+  /* Type 2 */
 .M-listT2 {
   --M-type: url("../img/Logo.png");
   padding: var(--M-padding);
@@ -324,9 +326,6 @@ ol.M-list {
   --M-primaryR: 255;
   --M-primaryG: 255;
   --M-primaryB: 255;
-  --M-red: var(--M-primaryR);
-  --M-green: var(--M-primaryG);
-  --M-blue: var(--M-primaryB);
   --M-width: 10em;
   --M-height: 1em;
   --M-shader: 50;
@@ -436,9 +435,6 @@ progress[class*="M-bar"]::-moz-progress-bar {
       --M-secondaryR: 0;
       --M-secondaryG: 0;
       --M-secondaryB: 255;
-      --M-red: var(--M-primaryR);
-      --M-green: var(--M-primaryG);
-      --M-blue: var(--M-primaryB);
       --M-type: decimal;
       --M-fontSize: 1.25em;
       --M-column: 2.5em;
@@ -590,7 +586,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
       }
   /* Type 2 */
     [contenteditable="true"].M-searchT2, input:not([type="checkbox"]):not([type="radio"]).M-searchT2, textarea.M-searchT2,
-    .M-search:not([contenteditable="true"]):not(input):not(textarea)T2 {
+    .M-searchT2:not([contenteditable="true"]):not(input):not(textarea) {
       border-top-color: transparent;
       border-left-color: transparent;
       border-right-color: transparent;
@@ -707,6 +703,99 @@ progress[class*="M-bar"]::-moz-progress-bar {
 /* -Box- */
 
   /* general */
+    [class*="M-box"] {
+      display: grid;
+      width: var(--M-width);
+      height: var(--M-height);
+      padding: var(--M-padding);
+      grid-auto-flow: dense;
+      gap: var(--M-gap);
+      margin: var(--M-margin);
+      background-color: rgba(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
+      grid-auto-rows: 1fr;
+    }
+    .M-box{
+      --M-width: calc(100% - (var(--M-margin) * 2 ));
+      --M-heiht: unset;
+      --M-align: baseline;
+      --M-justify: left;
+      --M-paddingLeft: var(--M-gap);
+      --M-shader: .5;
+      --M-gap: .25em;
+      --M-type: auto-fit;
+      --M-column: 1fr;
+      --M-row: 5%;
+      --M-red: 255;
+      --M-green: 255;
+      --M-blue: 255;
+      --M-opacity: 0;
+      --M-margin: 2.5px;
+
+      grid-template-columns: repeat(var(--M-type), var(--M-column));
+    }    
+    .M-box:not(:empty):before {
+      content: '';
+      width: 0;
+      padding-bottom: var(--M-row);
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+    .M-box > :first-child {
+      grid-row: 1 / 1;
+      grid-column: 1 / 1
+    }
+    [class*="M-boxT"]{
+      grid-auto-rows: var(--M-row);
+    }
+    .M-boxT2 {
+      --M-width: calc(100% - (var(--M-margin) * 2 ));
+      --M-heiht: unset;
+      --M-align: baseline;
+      --M-justify: left;
+      --M-paddingLeft: var(--M-gap);
+      --M-shader: .5;
+      --M-gap: .25em;
+      --M-type: auto-fit;
+      --M-column: 1fr;
+      --M-row: 5%;
+      --M-red: 255;
+      --M-green: 255;
+      --M-blue: 255;
+      --M-opacity: 0;
+      --M-margin: 2.5px;
+
+      grid-template-columns: repeat(var(--M-type), var(--M-column));
+    }
+    .M-boxT3 {
+      --M-width: calc(100% - (var(--M-margin) * 2 ));
+      --M-heiht: unset;
+      --M-align: baseline;
+      --M-justify: left;
+      --M-paddingLeft: var(--M-gap);
+      --M-shader: .5;
+      --M-gap: .25em;
+      --M-type: auto-fit;
+      --M-column: 1fr;
+      --M-row: 5%;
+      --M-red: 255;
+      --M-green: 255;
+      --M-blue: 255;
+      --M-opacity: 0;
+      --M-margin: 7.5px;
+      
+      grid-template-columns: calc(33% * var(--M-shader) ) 1fr calc(33% * var(--M-shader) );
+    }
+    .M-boxT3 > * {
+      grid-column: span 2;
+    }
+    .M-boxT3:nth-child(odd) > :nth-child(6n-5), .M-boxT3:nth-child(odd) > :nth-child(6n) {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
+    .M-boxT3:nth-child(even) > :nth-child(6n-3), .M-boxT3:nth-child(even) > :nth-child(6n-2) {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
 
 /* -Menu- */
 
@@ -733,37 +822,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
   }
 
 /* -Nav- */
-
-/* -Grid- */
-
-  /* general */
-.M-grid {
-  --M-width: 100%;
-  --M-height: 100%;
-  --M-type: auto-fit;
-  --M-gap: 5px;
-  --M-column: 250px;
-  --M-row: 250px;
-
-  display: grid;
-  gap: var(--M-Gap);
-  grid-template-columns: repeat(var(--M-type), var(--M-column));
-  grid-auto-rows: 1fr;
-  width: var(--M-width);
-  height: var(--M-height);
-}
-.M-grid:not(:empty):before {
-  content: '';
-  width: 0;
-  padding-bottom: var(--M-row);
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
-}
-.M-grid>*:first-child {
-  grid-row: 1 / 1;
-  grid-column: 1 / 1
-}
-
+  
 
 /*______Container______*/
 
@@ -788,14 +847,14 @@ progress[class*="M-bar"]::-moz-progress-bar {
   background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
 }
   /* Type-2 */
-.M-modal.full {
+.M-modalT2 {
   margin: 0;
   padding: var(--M-margin);
   background-color: rgba(calc(var(--M-red)*0.1), calc(var(--M-green)*0.1), calc(var(--M-blue)*0.1), var(--M-opacity));
 }
-.M-modal.full>*, .M-modal.full:empty::before {
+.M-modalT2>*, .M-modalT2:empty::before {
   background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
 }
-.M-modal.full:empty::before {
+.M-modalT2:empty::before {
   content: "";
 }

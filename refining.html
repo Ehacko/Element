@@ -9,6 +9,28 @@
       i.search-i {
         background: black;
       }
+      .M-box:nth-child(2) {
+        --M-column: 75px;
+        --M-row: 100%;
+      }
+      .M-boxT2:nth-child(1) {
+        --M-column: 75px 75px 100px;
+        --M-row: 100px 50px 75px;
+      }
+      .M-boxT2:nth-child(2) {
+        --M-column: 75px 100px 125px;
+        --M-row: 125px 100px 75px;
+      }
+      .M-boxT3 {
+        --M-row: 2em;
+        background: whitesmoke;
+      }
+      [class*="M-box"] > :nth-child(odd){
+        background: linear-gradient(45deg, black, transparent);
+      }
+      [class*="M-box"] > :nth-child(even){
+        background: linear-gradient(315deg, black, transparent);
+      }
     </style>
     <script defer>
       function select(a, b) {
@@ -453,7 +475,7 @@
           <textarea cols="30" rows="1" class="M-searchT2" placeholder="Search"></textarea>
           <textarea class="M-searchT2" placeholder="Search"></textarea><br>
           <div class="M-searchT2">
-            <div contenteditable="true" placeholder="Search"></div>
+            <input placeholder="Search">
             <i class="search-i"></i>
           </div>
           <div class="M-searchT2">
@@ -461,11 +483,11 @@
             <i class="fas fa-file"></i>
           </div>
           <div class="M-searchT2">
-            <div contenteditable="true" placeholder="Search"></div>
+            <textarea placeholder="Search"></textarea>
             <i class="fas fa-heart"></i>
           </div>
           <div class="M-searchT2">
-            <div contenteditable="true" placeholder="Search"></div>
+            <p contenteditable="true" placeholder="Search"></p>
             <i class="fas fa-car"></i>
           </div>
         </div>
@@ -498,17 +520,19 @@
     </div>
 
     <!------------ 
-        Grid
+        Box
     ------------->
 
     <div class="Mods">
-      <h2>GRID</h2>
+      <h2>BOX</h2>
 
       <!-- Type 1 -->
       <div>
         <h3>Type 1: </h3>
         <div>
-          <div class="M-grid">
+          <div class="M-box">
+            <div></div>
+            <div></div>
             <div></div>
             <div></div>
             <div></div>
@@ -520,7 +544,115 @@
             <div></div>
             <div></div>
           </div>
-          <span class="M-grid">
+          <span class="M-box">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Type 2 -->
+      <div>
+        <h3>Type 2: </h3>
+        <div>
+          <div class="M-boxT2">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <span class="M-boxT2">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Type 3 -->
+      <div>
+        <h3>Type 3: </h3>
+        <div>
+          <div class="M-boxT3">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <span class="M-boxT3">
+            <span></span>
+            <span></span>
             <span></span>
             <span></span>
             <span></span>
