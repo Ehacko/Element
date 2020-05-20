@@ -14,8 +14,8 @@ List of HTMLmodules:
 
     - Mixte(Can be put inside or outside modules)
 
-      1. Button(.M-btn)           
-      2. Card(.M-card)            ok
+      1. Button(.M-btn)           ok
+      2. Card(.M-card)            refine
       3. Form(.M-form)            ok
       4. List(.M-list)            ok
       5. ProgressBar(.M-bar)      ok
@@ -37,12 +37,12 @@ List of HTMLmodules:
     - Mixte(Can be put inside or outside modules)
 
       1. Box(.M-box)              ?
-      2. Menu(.M-menu)            ok
+      2. Menu(.M-menu)            ?
       3. Navbar(.M-nav)           ?
-      4. Grid(.M-grid)            ok
+      4. Grid(.M-grid)            ?
 
     - Container(Cannot be put inside modules)
-      1. Modal(.M-modal)          ok
+      1. Modal(.M-modal)          ?
 
 
 
