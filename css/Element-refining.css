@@ -69,6 +69,11 @@
 
 
 /* dependent variables */
+[class*="M-"] {
+  --M-red: var(--M-primaryR);
+  --M-green: var(--M-primaryG);
+  --M-blue: var(--M-primaryB);
+}
 [class*="M-"], [class*="M-"] > *  {
   all: unset;
   /* constrast variable. if background-color is dark, --M-color equal 255 else --M-color equal 0 */
@@ -155,9 +160,6 @@
     --M-secondaryR: 20;
     --M-secondaryG: 20;
     --M-secondaryB: 20;
-    --M-red: var(--M-primaryR);
-    --M-green: var(--M-primaryG);
-    --M-blue: var(--M-primaryB);
     --M-column: 40%;
     display: inline-grid;
     position: relative;
@@ -289,7 +291,7 @@ ol.M-list {
 .M-list > *{
   display: list-item;
 }
-  /* general */
+  /* Type 2 */
 .M-listT2 {
   --M-type: url("../img/Logo.png");
   padding: var(--M-padding);
@@ -324,9 +326,6 @@ ol.M-list {
   --M-primaryR: 255;
   --M-primaryG: 255;
   --M-primaryB: 255;
-  --M-red: var(--M-primaryR);
-  --M-green: var(--M-primaryG);
-  --M-blue: var(--M-primaryB);
   --M-width: 10em;
   --M-height: 1em;
   --M-shader: 50;
@@ -436,9 +435,6 @@ progress[class*="M-bar"]::-moz-progress-bar {
       --M-secondaryR: 0;
       --M-secondaryG: 0;
       --M-secondaryB: 255;
-      --M-red: var(--M-primaryR);
-      --M-green: var(--M-primaryG);
-      --M-blue: var(--M-primaryB);
       --M-type: decimal;
       --M-fontSize: 1.25em;
       --M-column: 2.5em;
@@ -719,7 +715,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
       grid-auto-rows: 1fr;
     }
     .M-box{
-      --M-width: 100%;
+      --M-width: calc(100% - (var(--M-margin) * 2 ));
       --M-heiht: unset;
       --M-align: baseline;
       --M-justify: left;
@@ -736,8 +732,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
       --M-margin: 2.5px;
 
       grid-template-columns: repeat(var(--M-type), var(--M-column));
-    }
-    
+    }    
     .M-box:not(:empty):before {
       content: '';
       width: 0;
@@ -753,7 +748,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
       grid-auto-rows: var(--M-row);
     }
     .M-boxT2 {
-      --M-width: 100%;
+      --M-width: calc(100% - (var(--M-margin) * 2 ));
       --M-heiht: unset;
       --M-align: baseline;
       --M-justify: left;
@@ -772,7 +767,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
       grid-template-columns: repeat(var(--M-type), var(--M-column));
     }
     .M-boxT3 {
-      --M-width: 100%;
+      --M-width: calc(100% - (var(--M-margin) * 2 ));
       --M-heiht: unset;
       --M-align: baseline;
       --M-justify: left;
@@ -786,7 +781,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
       --M-green: 255;
       --M-blue: 255;
       --M-opacity: 0;
-      --M-margin: 2.5px;
+      --M-margin: 7.5px;
       
       grid-template-columns: calc(33% * var(--M-shader) ) 1fr calc(33% * var(--M-shader) );
     }
@@ -827,11 +822,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
   }
 
 /* -Nav- */
-
-/* -Grid- */
-
-  /* general */
-
+  
 
 /*______Container______*/
 
@@ -856,14 +847,14 @@ progress[class*="M-bar"]::-moz-progress-bar {
   background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
 }
   /* Type-2 */
-.M-modal.full {
+.M-modalT2 {
   margin: 0;
   padding: var(--M-margin);
   background-color: rgba(calc(var(--M-red)*0.1), calc(var(--M-green)*0.1), calc(var(--M-blue)*0.1), var(--M-opacity));
 }
-.M-modal.full>*, .M-modal.full:empty::before {
+.M-modalT2>*, .M-modalT2:empty::before {
   background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
 }
-.M-modal.full:empty::before {
+.M-modalT2:empty::before {
   content: "";
 }
