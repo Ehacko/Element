@@ -686,19 +686,26 @@ progress[class*="M-bar"]::-moz-progress-bar {
 /*______Contained______*/
 
 
-/* -Breadcrumb- */
-
-  /* general */
-
 /* -Slider- */
 
   /* general */
+    [class*="M-slider"] {
+      display: grid;
+      width: var(--M-width);
+      height: var(--M-height);
+    }
 
 /* -Slide- */
+
+  /* general */
 
 
 /*______Mixte______*/
 
+
+/* -Breadcrumb- */
+
+  /* general */
 
 /* -Box- */
 
