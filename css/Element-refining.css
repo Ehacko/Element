@@ -822,7 +822,10 @@ progress[class*="M-bar"]::-moz-progress-bar {
   }
 
 /* -Nav- */
-  
+  .M-nav {
+    display: grid;
+    grid-auto-flow: column dense;
+  }
 
 /*______Container______*/
 
