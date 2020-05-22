@@ -691,13 +691,24 @@ progress[class*="M-bar"]::-moz-progress-bar {
   /* general */
     [class*="M-slider"] {
       display: grid;
-      width: var(--M-width);
-      height: var(--M-height);
+      grid-auto-columns: var(--M-column);
+      grid-auto-rows: var(--M-row);
     }
-
+  /* Type 1 */
+    .M-slider {
+      grid-auto-flow: column;
+    }
+  /* Type 3 */
+    .M-sliderT3 {
+      grid-auto-flow: dense;
+    }
 /* -Slide- */
 
   /* general */
+  [class*="M-slide"]:not([class*="M-slider"]) {
+    display: grid;
+
+  }
 
 
 /*______Mixte______*/
