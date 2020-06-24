@@ -31,15 +31,13 @@ List of HTMLmodules:
     - Contained(Cannot be put outside modules)
 
       1. Breadcrumb(.M-bdb)       ?
-      2. Slider(.M-slider)        ?
-      3. Slide(.M-slide)          ?
+      2. Slider(.M-slider)        ok
+      3. Slide(.M-slide)          refine
 
     - Mixte(Can be put inside or outside modules)
 
-      1. Box(.M-box)              ?
+      1. Box(.M-box)              ok
       2. Menu(.M-menu)            ?
-      3. Navbar(.M-nav)           ?
-      4. Grid(.M-grid)            ?
 
     - Container(Cannot be put inside modules)
       1. Modal(.M-modal)          ?
