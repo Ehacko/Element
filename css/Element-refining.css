@@ -41,26 +41,22 @@
     --M-borderStyle: string;
     --M-borderColor: string;
     --M-overflowX: string;
-    --M-overflowY: string
+    --M-overflowY: string;
     
   /* Style parameter */
 
     /* Red bits variables */
     --M-primaryR: 255;
     --M-secondaryR: var(--M-primaryR);
-    --M-red: 255;
     /* Green bits variables */
     --M-primaryG: 255;
     --M-secondaryG: var(--M-primaryG);
-    --M-green: 255;
     /* Blue bits variables */
     --M-primaryB: 255;
     --M-secondaryB: var(--M-primaryB);
-    --M-blue: 255;
     /* Opacity variables */
     --M-primaryA: 1;
     --M-secondaryA: var(--M-primaryA);
-    --M-opacity: 1;
 }
 
 
@@ -74,6 +70,7 @@
   --M-red: var(--M-primaryR);
   --M-green: var(--M-primaryG);
   --M-blue: var(--M-primaryB);
+  --M-opacity: var(--M-primaryA)
 }
 [class*="M-"], [class*="M-"] > *  {
   all: unset;
@@ -108,7 +105,7 @@
           /**************************************/
 
 
-/* -Button(finished)- */
+/* -Button- */
 
   /* general */
 [class*="M-btn"]{
@@ -155,283 +152,286 @@
 /* -Card(inprocess)- */
 
   /* Type-1 */
-  [class*="M-card"] {
-    --M-width: 150px;
-    --M-height: calc(var(--M-width) * 1.5);
-    --M-primaryR: 200;
-    --M-primaryG: 200;
-    --M-primaryB: 200;
-    --M-secondaryR: 20;
-    --M-secondaryG: 20;
-    --M-secondaryB: 20;
-    --M-column: 40%;
-    display: inline-grid;
-    position: relative;
-    margin: var(--M-margin);
-    width: var(--M-width);
-    height: var(--M-height);
-  }
-  [class*="M-card"]:empty::before {
-    --M-red: var(--M-secondaryR);
-    --M-green: var(--M-secondaryG);
-    --M-blue: var(--M-secondaryB);
-  }
-  [class*="M-card"]:empty::before,
-  [class*="M-card"]:empty::after {
-    content: "";
-    background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
-  }
-  .M-card {
-    grid-template-rows: var(--M-column) calc( 100% - var(--M-column) );
-  }
+    [class*="M-card"] {
+      --M-width: 150px;
+      --M-height: calc(var(--M-width) * 1.5);
+      --M-primaryR: 200;
+      --M-primaryG: 200;
+      --M-primaryB: 200;
+      --M-secondaryR: 20;
+      --M-secondaryG: 20;
+      --M-secondaryB: 20;
+      --M-column: 40%;
+      display: inline-grid;
+      position: relative;
+      margin: var(--M-margin);
+      width: var(--M-width);
+      height: var(--M-height);
+    }
+    [class*="M-card"]:empty::before {
+      --M-red: var(--M-secondaryR);
+      --M-green: var(--M-secondaryG);
+      --M-blue: var(--M-secondaryB);
+    }
+    [class*="M-card"]:empty::before,
+    [class*="M-card"]:empty::after {
+      content: "";
+      background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
+    }
+    .M-card {
+      grid-template-rows: var(--M-column) calc( 100% - var(--M-column) );
+    }
   /* Type-2 */
-  .M-cardT2>:first-child, .M-cardT2:empty>::before {
-    position: absolute;
-    width: var(--M-width);
-    height: var(--M-height);
-    z-index: -1;
-  } 
-  .M-cardT2>:nth-child(2), .M-cardT2:empty>::before {
-    --M-paddingBottom: var(--M-paddingLeft);
-    margin: var(--M-paddingTop) var(--M-paddingRight) var(--M-paddingBottom) var(--M-paddingLeft);
-  }
-/* -Form(finished)- */
+    .M-cardT2>:first-child, .M-cardT2:empty>::before {
+      position: absolute;
+      width: var(--M-width);
+      height: var(--M-height);
+      z-index: -1;
+    } 
+    .M-cardT2>:nth-child(2), .M-cardT2:empty>::before {
+      --M-paddingBottom: var(--M-paddingLeft);
+      margin: var(--M-paddingTop) var(--M-paddingRight) var(--M-paddingBottom) var(--M-paddingLeft);
+    }
+
+/* -Form- */
 
   /* general */
-[class*="M-form"] {
-  --M-width: calc(100% - 2em);
-  --M-height: fit-content;
-  --M-gap: 5px 15px;
-  --M-margin: 5px 15px;
-  --M-paddingLeft: .5em;
-  --M-justify: center;
-  --M-align: center;
+    [class*="M-form"] {
+      --M-width: calc(100% - 2em);
+      --M-height: fit-content;
+      --M-gap: 5px 15px;
+      --M-margin: 5px 15px;
+      --M-paddingLeft: .5em;
+      --M-justify: center;
+      --M-align: center;
 
-  display: grid;
-  width: var(--M-width);
-  height: var(--M-height);
-  gap: var(--M-gap);
-  margin: var(--M-margin);
-  padding: var(--M-padding);
-  justify-content: var(--M-justify);
-  align-content: var(--M-align);
-  overflow: var(--M-overflowX) var(--M-overflowY);
-}
-[class*="M-form"].reverse {
-  grid-auto-flow: dense;
-}
-.M-formT2.reverse> input:nth-of-type(1) {
-  grid-row: 2;
-}
-.M-formT2.reverse> input:nth-of-type(2) {
-  grid-row: 4;
-}
-.M-formT2.reverse> input:nth-of-type(3) {
-  grid-row: 6;
-}
-.M-formT2.reverse> input:nth-of-type(4) {
-  grid-row: 8;
-}
-.M-formT2.reverse> input:nth-of-type(5) {
-  grid-row: 10;
-}
-.M-formT2.reverse> input:nth-of-type(6) {
-  grid-row: 12;
-}
-.M-formT2.reverse> input:nth-of-type(7) {
-  grid-row: 15;
-}
-.M-formT2.reverse> input:nth-of-type(8) {
-  grid-row: 16;
-}
-.M-formT2.reverse> input:nth-of-type(9) {
-  grid-row: 18;
-}
-.M-formT2.reverse> input:nth-of-type(10) {
-  grid-row: 20;
-}
-[class*="M-form"] > :not(input) {
-  cursor: pointer;
-}
-[class*="M-form"].reverse > input:focus + :not(input) {
-  border-bottom: 1px solid;
-}
-.M-form > input {
-  grid-column: 2;
-}
-.M-form > :not(input) {
-  align-self: center;
-  justify-self: right;
-}
-  /* Type 2 */
-.M-formT2 > :not(input) {
-  justify-self: var(--M-justify);
-  text-align: var(--M-justify);
-}
+      display: grid;
+      width: var(--M-width);
+      height: var(--M-height);
+      gap: var(--M-gap);
+      margin: var(--M-margin);
+      padding: var(--M-padding);
+      justify-content: var(--M-justify);
+      align-content: var(--M-align);
+      overflow: var(--M-overflowX) var(--M-overflowY);
+    }
+    [class*="M-form"].reverse {
+      grid-auto-flow: dense;
+    }
+    [class*="M-form"] > :not(input) {
+      cursor: pointer;
+    }
+    [class*="M-form"].reverse > input:focus + :not(input) {
+      border-bottom: 1px solid;
+    }
+    /* Type 1 */
+      .M-form > input {
+        grid-column: 2;
+      }
+      .M-form > :not(input) {
+        align-self: center;
+        justify-self: right;
+      }
+    /* Type 2 */
+      .M-formT2.reverse> input:nth-of-type(1) {
+        grid-row: 2;
+      }
+      .M-formT2.reverse> input:nth-of-type(2) {
+        grid-row: 4;
+      }
+      .M-formT2.reverse> input:nth-of-type(3) {
+        grid-row: 6;
+      }
+      .M-formT2.reverse> input:nth-of-type(4) {
+        grid-row: 8;
+      }
+      .M-formT2.reverse> input:nth-of-type(5) {
+        grid-row: 10;
+      }
+      .M-formT2.reverse> input:nth-of-type(6) {
+        grid-row: 12;
+      }
+      .M-formT2.reverse> input:nth-of-type(7) {
+        grid-row: 15;
+      }
+      .M-formT2.reverse> input:nth-of-type(8) {
+        grid-row: 16;
+      }
+      .M-formT2.reverse> input:nth-of-type(9) {
+        grid-row: 18;
+      }
+      .M-formT2.reverse> input:nth-of-type(10) {
+        grid-row: 20;
+      }
+      .M-formT2 > :not(input) {
+        justify-self: var(--M-justify);
+        text-align: var(--M-justify);
+      }
 
-/* -List(inprocess)- */
-
-  /* general */
-[class*="M-list"]{
-  --M-width: 100%;
-  --M-height: fit-content;
-  --M-paddingLeft: 1px;
-  --M-gap: 5px;
-  --M-type: "-";
-  --M-row: auto;
-  --M-shader: 0.75;
-
-  display: grid;
-  width: var(--M-width);
-  height: var(--M-height);
-  padding: var(--M-padding);
-  padding-left: calc(40px + var(--M-paddingLeft));
-  gap: var(--M-gap); 
-  grid-auto-rows: var(--M-row);
-  list-style-type: var(--M-type);
-  overflow: var(--M-overflowX) var(--M-overflowY);
-}
-ol.M-list {
-  --M-type: upper-roman;
-}
-.M-list > *{
-  display: list-item;
-}
-  /* Type 2 */
-.M-listT2 {
-  --M-type: url("../img/Logo.png");
-  padding: var(--M-padding);
-}
-.M-listT2> * {
-  position: relative;
-  display: inline-grid;
-  grid-template-columns:  40px 1fr;
-}
-.M-listT2> *::before {
-  display: grid;
-  content: "";
-  background: var(--M-type);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  justify-self: right;
-  align-self: baseline;
-  height: calc(16px * var(--M-shader));
-  width: calc(16px * var(--M-shader));
-  margin-top: 2.5px;
-  margin-right: 5px;
-}
-
-/* -ProgressBar(finished)- */
+/* -List- */
 
   /* general */
-[class*="M-bar"] {
-  --M-secondaryR: 0;
-  --M-secondaryG: 0;
-  --M-secondaryB: 255;
-  --M-primaryR: 255;
-  --M-primaryG: 255;
-  --M-primaryB: 255;
-  --M-width: 10em;
-  --M-height: 1em;
-  --M-shader: 50;
-  --M-radius: 2.5px;
-  --M-type: "loading...";
+    [class*="M-list"]{
+      --M-width: 100%;
+      --M-height: fit-content;
+      --M-paddingLeft: 1px;
+      --M-gap: 5px;
+      --M-type: "-";
+      --M-row: auto;
+      --M-shader: 0.75;
 
-  counter-reset: progress var(--M-shader);
-  overflow: hidden;
-  display: grid;
-  width: var(--M-width);
-  position: relative;
-  height: var(--M-height);
-  border: 1px double var(--M-color);
-  border-radius: var(--M-radius);
-  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.5) inset, -1px -2px 10px 0 rgba(255, 255, 255, 0.5) inset;
-  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
-}
-progress[class*="M-bar"]::-webkit-progress-bar {
-  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
-  border-radius: var(--M-radius);
-  height: var(--M-height);
-  box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.5) inset, -1px -2px 10px 0 rgba(255, 255, 255, 0.5) inset;
-}
-progress[class*="M-bar"]:indeterminate, progress[class*="M-bar"]:indeterminate::-webkit-progress-bar, progress[class*="M-bar"]::-webkit-progress-value {
-  background-color: rgb(var(--M-secondaryR), var(--M-secondaryG), var(--M-secondaryB));
-  border-radius: var(--M-radius);
-  box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 1px -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
-  transition: ease .5s all;
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2));
-}
-progress[class*="M-bar"]:indeterminate, [class*="M-bar"][indeterminate]:not(progress)>:nth-child(1) {
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2)),
-  linear-gradient(45deg, rgba(255, 255, 255, .5) 25%, rgba(0, 0, 0, .5) 25%, rgba(0, 0, 0, .5) 50%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .5) 75%, rgba(0, 0, 0, .5) 75%);
-  background-size: calc(var(--M-width) / 10);
-  animation: M-background 5s linear infinite;
-}
-progress[class*="M-bar"]:indeterminate::-webkit-progress-bar{
-  background: transparent;
-  box-shadow: none;
-}
-progress:indeterminate[class*="M-bar"]::-moz-progress-bar {
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2)),
-  linear-gradient(45deg, rgba(255, 255, 255, .5) 25%, rgba(0, 0, 0, .5) 25%, rgba(0, 0, 0, .5) 50%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .5) 75%, rgba(0, 0, 0, .5) 75%);
-  background-size: calc(var(--M-width) / 10);
-  animation: M-background 5s linear infinite;
-}
-progress[class*="M-bar"]::-moz-progress-bar {
-  --M-red: var(--M-secondaryR);
-  --M-green: var(--M-secondaryG);
-  --M-blue: var(--M-secondaryB);
-  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
-  border-radius: var(--M-radius);
-  box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 1px -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
-  transition: ease .5s all;
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2));
-}
-[class*="M-bar"]:not(progress)>:nth-child(1) {
-  --M-red: var(--M-secondaryR);
-  --M-green: var(--M-secondaryG);
-  --M-blue: var(--M-secondaryB);
-  position: relative;
-  background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
-  overflow: hidden;
-  width: calc( 1% * var(--M-shader));
-  height: 100%;
-  border-radius: var(--M-radius);
-  box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 1px -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
-  transition: ease .5s all;
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2));
-}
-[class*="M-bar"][indeterminate]:not(progress) {
-  --M-shader: 100;
-}
-  /* Type 2 */
-.M-barT2:not(progress)::before {
-  position: absolute;
-  display: inline-grid;
-  align-content: center;
-  justify-content: center;
-  content: counter(progress)"%";
-  color: var(--M-color);
-  width: var(--M-width);
-  height: 100%;
-}
-.M-barT2:not(progress)>:nth-child(1)::before {
-  display: inline-grid;
-  align-content: center;
-  justify-content: center;
-  position: absolute;
-  content: counter(progress)"%";
-  color: var(--M-color);
-  width: var(--M-width);
-  height: 100%;
-}
-.M-barT2[indeterminate]:not(progress)::before, .M-barT2[indeterminate]:not(progress)>:nth-child(1)::before {
-  animation: ease-in-out M-opacity 1s alternate infinite;
-  content: var(--M-type);
-}
+      display: grid;
+      width: var(--M-width);
+      height: var(--M-height);
+      padding: var(--M-padding);
+      padding-left: calc(40px + var(--M-paddingLeft));
+      gap: var(--M-gap); 
+      grid-auto-rows: var(--M-row);
+      list-style-type: var(--M-type);
+      overflow: var(--M-overflowX) var(--M-overflowY);
+    }
+    /* Type 1 */
+      ol.M-list {
+        --M-type: upper-roman;
+      }
+      .M-list > *{
+        display: list-item;
+      }
+    /* Type 2 */
+      .M-listT2 {
+        --M-type: url("../img/Logo.png");
+        padding: var(--M-padding);
+      }
+      .M-listT2> * {
+        position: relative;
+        display: inline-grid;
+        grid-template-columns:  40px 1fr;
+      }
+      .M-listT2> *::before {
+        display: grid;
+        content: "";
+        background: var(--M-type);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        justify-self: right;
+        align-self: baseline;
+        height: calc(16px * var(--M-shader));
+        width: calc(16px * var(--M-shader));
+        margin-top: 2.5px;
+        margin-right: 5px;
+      }
 
-/* -Pagination(finished)- */
+/* -ProgressBar- */
+
+  /* general */
+    [class*="M-bar"] {
+      --M-secondaryR: 0;
+      --M-secondaryG: 0;
+      --M-secondaryB: 255;
+      --M-primaryR: 255;
+      --M-primaryG: 255;
+      --M-primaryB: 255;
+      --M-width: 10em;
+      --M-height: 1em;
+      --M-shader: 50;
+      --M-radius: 2.5px;
+      --M-type: "loading...";
+
+      counter-reset: progress var(--M-shader);
+      overflow: hidden;
+      display: grid;
+      width: var(--M-width);
+      position: relative;
+      height: var(--M-height);
+      border: 1px double var(--M-color);
+      border-radius: var(--M-radius);
+      box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.5) inset, -1px -2px 10px 0 rgba(255, 255, 255, 0.5) inset;
+      background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
+    }
+    progress[class*="M-bar"]::-webkit-progress-bar {
+      background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
+      border-radius: var(--M-radius);
+      height: var(--M-height);
+      box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.5) inset, -1px -2px 10px 0 rgba(255, 255, 255, 0.5) inset;
+    }
+    progress[class*="M-bar"]:indeterminate, progress[class*="M-bar"]:indeterminate::-webkit-progress-bar, progress[class*="M-bar"]::-webkit-progress-value {
+      background-color: rgb(var(--M-secondaryR), var(--M-secondaryG), var(--M-secondaryB));
+      border-radius: var(--M-radius);
+      box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 1px -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
+      transition: ease .5s all;
+      background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2));
+    }
+    progress[class*="M-bar"]:indeterminate, [class*="M-bar"][indeterminate]:not(progress)>:nth-child(1) {
+      background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2)),
+      linear-gradient(45deg, rgba(255, 255, 255, .5) 25%, rgba(0, 0, 0, .5) 25%, rgba(0, 0, 0, .5) 50%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .5) 75%, rgba(0, 0, 0, .5) 75%);
+      background-size: calc(var(--M-width) / 10);
+      animation: M-background 5s linear infinite;
+    }
+    progress[class*="M-bar"]:indeterminate::-webkit-progress-bar{
+      background: transparent;
+      box-shadow: none;
+    }
+    progress:indeterminate[class*="M-bar"]::-moz-progress-bar {
+      background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2)),
+      linear-gradient(45deg, rgba(255, 255, 255, .5) 25%, rgba(0, 0, 0, .5) 25%, rgba(0, 0, 0, .5) 50%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .5) 75%, rgba(0, 0, 0, .5) 75%);
+      background-size: calc(var(--M-width) / 10);
+      animation: M-background 5s linear infinite;
+    }
+    progress[class*="M-bar"]::-moz-progress-bar {
+      --M-red: var(--M-secondaryR);
+      --M-green: var(--M-secondaryG);
+      --M-blue: var(--M-secondaryB);
+      background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
+      border-radius: var(--M-radius);
+      box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 1px -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
+      transition: ease .5s all;
+      background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2));
+    }
+    [class*="M-bar"]:not(progress)>:nth-child(1) {
+      --M-red: var(--M-secondaryR);
+      --M-green: var(--M-secondaryG);
+      --M-blue: var(--M-secondaryB);
+      position: relative;
+      background-color: rgb(var(--M-red), var(--M-green), var(--M-blue));
+      overflow: hidden;
+      width: calc( 1% * var(--M-shader));
+      height: 100%;
+      border-radius: var(--M-radius);
+      box-shadow: 0 2px 10px -3px rgba(255, 255, 255, 0.5) inset, 1px -2px 10px 3px rgba(0, 0, 0, 0.5) inset;
+      transition: ease .5s all;
+      background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(0, 0, 0, .2));
+    }
+    [class*="M-bar"][indeterminate]:not(progress) {
+      --M-shader: 100;
+    }
+    /* Type 2 */
+      .M-barT2:not(progress)::before {
+        position: absolute;
+        display: inline-grid;
+        align-content: center;
+        justify-content: center;
+        content: counter(progress)"%";
+        color: var(--M-color);
+        width: var(--M-width);
+        height: 100%;
+      }
+      .M-barT2:not(progress)>:nth-child(1)::before {
+        display: inline-grid;
+        align-content: center;
+        justify-content: center;
+        position: absolute;
+        content: counter(progress)"%";
+        color: var(--M-color);
+        width: var(--M-width);
+        height: 100%;
+      }
+      .M-barT2[indeterminate]:not(progress)::before, .M-barT2[indeterminate]:not(progress)>:nth-child(1)::before {
+        animation: ease-in-out M-opacity 1s alternate infinite;
+        content: var(--M-type);
+      }
+
+/* -Pagination- */
 
   /* general */
     [class*="M-page"] {
@@ -453,27 +453,6 @@ progress[class*="M-bar"]::-moz-progress-bar {
       justify-content: center;
       font-size: var(--M-fontSize);
     }
-    .M-pageT2{
-      --M-primaryR: 255;
-      --M-primaryG: 255;
-      --M-primaryB: 255;
-    }
-    [class*="M-page"]>[type="radio"] {
-      display: none;
-    }
-    [class*="M-page"] > :not(input) {
-      display: inline-grid;
-      align-content: center;
-      justify-content: center;
-      color: var(--M-color);
-      cursor: pointer;
-    }
-    .M-page > :not(input) {
-      width: fit-content;
-      height: fit-content;
-      align-self: center;
-      justify-self: center;
-    }
     [class*="M-page"] > :not(input)::before {
       counter-increment: pageN;
       content: counter(pageN, var(--M-type));
@@ -491,21 +470,44 @@ progress[class*="M-bar"]::-moz-progress-bar {
     [class*="M-page"] > :not(:checked) + :not(input):hover:not(.active){
       filter: opacity(0.5);
     }
-  /* Type 2 */
-    .M-pageT2 > :not(input) {
+    [class*="M-page"]>[type="radio"] {
+      display: none;
+    }
+    [class*="M-page"] > :not(input) {
+      display: inline-grid;
       align-content: center;
       justify-content: center;
-      background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
-    }
-    .M-pageT2 > :not(input)::before {
       color: var(--M-color);
+      cursor: pointer;
     }
-    .M-pageT2 > :checked + label, .M-pageT2 > :not(input).active, .M-pageT2 > :not(input):hover {
-      background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
-      color: var(--M-color);
-    }
+    /* Type 1 */
+      .M-page > :not(input) {
+        width: fit-content;
+        height: fit-content;
+        align-self: center;
+        justify-self: center;
+      }
+    /* Type 2 */
+      .M-pageT2{
+        --M-primaryR: 255;
+        --M-primaryG: 255;
+        --M-primaryB: 255;
+      }
+      .M-pageT2 > :not(input) {
+        align-content: center;
+        justify-content: center;
+        background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
+      }
+      .M-pageT2 > :not(input)::before {
+        color: var(--M-color);
+      }
+      .M-pageT2 > :checked + label, .M-pageT2 > :not(input).active, .M-pageT2 > :not(input):hover {
+        background-color: rgb(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity));
+        color: var(--M-color);
+      }
 
 /* -Searchbar(inprocess)- */
+
   /* general */
     [class*="M-search"]{
       --M-width: 250px;
@@ -598,7 +600,8 @@ progress[class*="M-bar"]::-moz-progress-bar {
       border-right-color: transparent;
     }
   
-/* -Switch(inprocess)- */
+/* -Switch- */
+
 [class*="M-switch"] {
   --M-primaryR: 204;
   --M-primaryG: 68;
@@ -759,7 +762,6 @@ progress[class*="M-bar"]::-moz-progress-bar {
     [type=H-carousel]>[type="radio"]:checked:nth-of-type(21) ~ .M-slider{
       transform: translateX(calc( (var(--M-width) + var(--M-gap)) * -20 ));
     }
-  /* Type 2 */
     [type=V-carousel]>[type="radio"]:checked:nth-of-type(2) ~ .M-slider {
       transform: translateY(calc( (var(--M-height) + var(--M-gap)) * -1 ));
     }
@@ -820,7 +822,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
     [type=V-carousel]>[type="radio"]:checked:nth-of-type(21) ~ .M-slider {
       transform: translateY(calc( (var(--M-height) + var(--M-gap)) * -20 ));
     }
-  /* Type 3
+  /* Type 2
     .M-sliderT3 {
       grid-auto-flow: dense;
     }
@@ -904,6 +906,7 @@ progress[class*="M-bar"]::-moz-progress-bar {
       grid-row: 1;
       grid-column: 1;
     } */
+
 /* -Slide- */
 
   /* general */
@@ -917,14 +920,11 @@ progress[class*="M-bar"]::-moz-progress-bar {
       grid-row: 1;
       grid-column: 1;
     }
-    /* Type 1 */
-
-      [type=H-carousel]:not([class*="M-slider"]) > :not(:checked) + .M-slide:not(.active){
-        width: 0;
-      }
-    /* Type 2 */
-      [type=V-carousel]:not([class*="M-slider"]) > :not(:checked) + .M-slide:not(.active){
-        height: 0;
+    [type=H-carousel]:not([class*="M-slider"]) > :not(:checked) + .M-slide:not(.active){
+      width: 0;
+    }
+    [type=V-carousel]:not([class*="M-slider"]) > :not(:checked) + .M-slide:not(.active){
+      height: 0;
     }
 
 /*______Mixte______*/
@@ -933,6 +933,33 @@ progress[class*="M-bar"]::-moz-progress-bar {
 /* -Breadcrumb- */
 
   /* general */
+
+  .M-bdb {
+    display: grid;
+    gap: var(--M-gap);
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+  }
+  .M-bdb * {
+    color: rgba(var(--M-red), var(--M-green), var(--M-blue), var(--M-opacity) );
+  }
+  .M-bdb > *+*::before {
+    content: var(--M-type);
+    position: relative;
+    left: calc( var(--M-gap) / -2 );
+  }
+  .M-bdb > * > * {
+    text-decoration: none;
+  }
+  .M-bdb > :not(:last-child) > * {
+    --M-red: var(--M-secondaryR);
+    --M-green: var(--M-secondaryG);
+    --M-blue: var(--M-secondaryB);
+    --M-opacity: var(--M-secondaryA);
+  }
+  .M-bdb > :not(:last-child) > :hover {
+    text-decoration: underline;
+  }
 
 /* -Box- */
 
@@ -1073,13 +1100,17 @@ progress[class*="M-bar"]::-moz-progress-bar {
       [type*="carousel"] > [class*="M-slide"] {
         transition: all ease 1s;
       }
+      [type*="carousel"] {
+        --M-row: 0;
+        --M-colum: 0;
+        gap: 0;
+      }
       [type*="carousel"] > input {
         display: none;
       }
       [type*="H-carousel"]{
         --M-flow: column;
         grid-auto-flow: var(--M-flow);
-        gap: 0;
       }
       [type*="v-carousel"]{
         --M-flow: row;

@@ -446,3 +446,15 @@ textarea.M-search:empty::before,
 .M-modal.full:empty::before {
   content: "";
 }
+
+.M-bdb{
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1em;
+  grid-auto-columns: max-content;
+}
+.M-bdb > :not(:first-child)::before {
+  content: ">";
+  position: relative;
+  left: -.5em;
+}
